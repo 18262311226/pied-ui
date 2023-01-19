@@ -1,6 +1,5 @@
 ## 按钮
-
-<button>点击</button>
+<pied-button>点击</pied-button>
 
 ::: details 代码示例
 ```js

@@ -1,7 +1,18 @@
 {
-  "name": "pied-ui",
-  "private": true,
-  "version": "0.0.0",
+  "name": "pied-design-ui",
+  "private": false,
+  "version": "0.0.4",
+  "main": "./dist/pied-design-ui.umd.js",
+  "module": "./dist/pied-design-ui.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/pied-design-ui.es.js",
+      "require": "./dist/pied-design-ui.umd.js"
+    }
+  },
+  "files": [
+    "dist/*"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -12,6 +23,7 @@
   },
   "dependencies": {
     "@vueuse/core": "^9.11.0",
+    "pied-design-ui": "^0.0.4",
     "sass": "^1.57.1",
     "vitepress": "^1.0.0-alpha.8",
     "vue": "^3.2.45"

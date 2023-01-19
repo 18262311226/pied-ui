@@ -1,11 +1,9 @@
 <script setup>
-import Button1 from './components/button/index.vue'
-
 </script>
 
 <template>
   <div>
-    <Button1/>
+    <pied-button>hello</pied-button>
   </div>
 </template>
 

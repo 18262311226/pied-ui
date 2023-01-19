@@ -10,4 +10,21 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src')
     }
   },
+  build:{
+    rollupOptions:{
+      external: ["vue"],
+      output:{
+        globals: {
+          vue: 'Vue'
+        }
+      }
+    },
+    cssCodeSplit: true,
+    lib:{
+      entry: './components/index',
+      name: 'pied-design-ui',
+      fileName: (format) => `pied-design-ui.${format}.js`, // 输出文件名
+      formats: ['es', 'umd'],
+    }
+  }
 })
