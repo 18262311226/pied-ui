@@ -50,5 +50,5 @@ module.exports = {
             copyright: 'Copyright © 2023-present Gerforey'
         }
     },
-    base: '/pied-ui/'
+    base: '/pied-design-ui/'
 }
