@@ -2,7 +2,7 @@
 layout: home
 prev: 'Get Started | Markdown'
 hero:
-  name: Pied UI
+  name: Pied-design-ui
   text: 使用 Vite & Vue 3.x & Vueuse & tailwindcss.
   tagline: 构建属于自己的炫酷个人网站
   image:
@@ -15,7 +15,7 @@ hero:
       link: /content
     - theme: alt
       text: 获取源码
-      link: https://github.com/18262311226
+      link: https://github.com/18262311226/pied-ui
 home: true
 features:
   - icon: 🛠️

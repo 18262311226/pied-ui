@@ -1,8 +1,8 @@
 module.exports = {
-    title: 'Pied Piper',
+    title: 'Pied-design-ui',
     description: 'Just playing around.',
     themeConfig: {
-        siteTitle: 'Pied UI',
+        siteTitle: 'Pied-design-ui',
         algolia: {
             apiKey: 'your_api_key',
             indexName: 'index_name'
@@ -43,7 +43,7 @@ module.exports = {
                   { text: 'japan', link: '/item-3' }
                 ]
             },
-            { text: '源码', link: 'https://github.com/18262311226' }
+            { text: '源码', link: 'https://github.com/18262311226/pied-ui' }
         ],
         footer: {
             message: 'Released under the MIT License.',
