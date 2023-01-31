@@ -1,1 +1,0 @@
-import{_ as t,o as n,c as o,f as s}from"../app.7aca9b12.js";const _={name:"PiedButton"},a={class:"pied-button"};function c(e,r,d,i,l,p){return n(),o("button",a,[s(e.$slots,"default")])}const f=t(_,[["render",c]]);export{f as default};
