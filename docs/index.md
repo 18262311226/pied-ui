@@ -6,7 +6,7 @@ hero:
   text: 使用 Vite & Vue 3.x & Vueuse & tailwindcss.
   tagline: 构建属于自己的炫酷个人网站
   image:
-    src: /image/pagelogo.png
+    src: https://p9-passport.byteacctimg.com/img/user-avatar/1b4b92852151c19e4fe94ee0ec47bd17~300x300.image
     alt: VitePress
     radius: true
   actions:

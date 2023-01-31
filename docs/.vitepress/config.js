@@ -25,7 +25,7 @@ module.exports = {
             {
                 text: 'Form',
                 items: [
-                  { text: 'Radio 单选框', link: '../components/icon.md' },
+                  { text: 'Radio 单选框', link: '../components/radio.md' },
                   { text: 'Checkbox 多选框', link: '/../components/button.md' },
                   { text: 'Input 输入框', link: '/../components/button.md' },
                   { text: 'InputNumber 计数器', link: '/../components/button.md' },

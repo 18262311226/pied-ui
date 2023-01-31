@@ -13,13 +13,13 @@
 </template>
 
 <script>
-import { computed, defineProps } from 'vue'
 export default {
   name: 'PiedButton'
 }
 </script>
 
 <script setup>
+import { computed, defineProps } from 'vue'
 const props = defineProps({
   type: {
     type: String,
@@ -63,7 +63,7 @@ let classes = computed(() => {
 </script>
 
 
-<style>
+<style scoped>
 .pied-button{
   position: relative;
   display: inline-block;
