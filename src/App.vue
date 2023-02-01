@@ -2,15 +2,24 @@
 </script>
 
 <template>
-    <pied-checkbox v-model="checklist" label="1" border>文科</pied-checkbox>
-    <pied-checkbox v-model="checklist" label="2" border>理科</pied-checkbox>
-
-    <button @click="handle">dian</button>
+  <pied-checkbox-group v-model="checklist" :data="data" :keys="{label: 'label', value: 'value'}">
+  </pied-checkbox-group>
+  <button @click="handle">dian</button>
 </template>
 
 <script setup>
 import { ref } from 'vue'
 const checklist = ref([])
+const data = ref([
+  {
+    value: 0,
+    label: '文科'
+  },
+  {
+    value: 1,
+    label: '理科'
+  }
+])
 const handle = () => {
   console.log(checklist.value)
 }

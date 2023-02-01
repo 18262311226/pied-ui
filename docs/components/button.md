@@ -105,7 +105,7 @@
 :::
 
 | 参数        |      说明      |  可选值 | 默认值 | 类型 | 
-| ------------- | :-----------: | ----: | ------: |  ------: | 
+| -------------| :-------------: | ----------: | -------------: |  ----------: | 
 | type      | 按钮类型 | primary,info,warning,error | primary |  String | 
 | size      |   按钮大小    |   mini,small,mediue |  small |  String |
 | loading |   加载    |    true,false | false |  Boolean |

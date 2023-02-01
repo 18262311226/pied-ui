@@ -1,5 +1,5 @@
 <template>
-<div class="pied-checkbox">
+<div class="pied-checkbox" :class="piedClasses">
     <div class="pied-checkbox-box" :class="piedboxClasses" @click="handelChange">
         <div class="checkbox">
             <div class="checkbox-item" :class="itemClasses"></div>
@@ -36,17 +36,20 @@ const props = defineProps({
     border: {
         type: Boolean,
         default: false
-    }
+    } 
 })
 const emits = defineEmits(['update:modelValue'])
 const checklist = ref('')
 checklist.value = props.modelValue
 let itemClasses = computed(() => {
     if(typeof checklist.value == 'boolean'){
-        return checklist.value ? [props.border ? 'pied-checkbox-box-border' : '','item-choose'] : [props.border ? 'pied-checkbox-box-border' : '']
+        return checklist.value ? ['item-choose'] : [props.border ? 'pied-checkbox-box-border' : '']
     }else {
-        return checklist.value.includes(props.label) ? [props.border ? 'pied-checkbox-box-border' : '','item-choose'] : [props.border ? 'pied-checkbox-box-border' : '']
+        return checklist.value.includes(props.label) ? ['item-choose'] : [props.border ? 'pied-checkbox-box-border' : '']
     }
+})
+let piedClasses = computed(() => {
+    return props.border ? ['pied-checkbox-box-border'] : ['']
 })
 let piedboxClasses = computed(() => {
     if(typeof checklist.value == 'boolean'){

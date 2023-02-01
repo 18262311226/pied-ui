@@ -11,7 +11,7 @@
 ```js
 <template>
     <pied-radio v-model="radio" label="1">option1</pied-radio>
-    <pied-radio v-model="radio" label="2">option2dwqedwq</pied-radio>
+    <pied-radio v-model="radio" label="2">option2</pied-radio>
 </template>
 
 <script>
