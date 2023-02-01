@@ -14,7 +14,7 @@
     "dist/*"
   ],
   "scripts": {
-    "deploy":"bash deploy.sh",
+    "deploy": "bash deploy.sh",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@vueuse/core": "^9.11.0",
+    "mitt": "^3.0.0",
     "pied-design-ui": "^0.0.4",
     "sass": "^1.57.1",
     "vitepress": "^1.0.0-alpha.8",

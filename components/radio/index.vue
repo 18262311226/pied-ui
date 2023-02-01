@@ -14,19 +14,20 @@
 
 <script>
 export default {
-    name: 'pied-radio'
+    name: 'piedRadio'
 }
 </script>
 
 <script setup>
-import { computed, defineProps } from 'vue'
+import emiter from '../../utils/emiter'
+import { computed, defineProps, reactive } from 'vue'
 const props = defineProps({
     modelValue: {
-        type: String,
+        require:true,
         default: ''
     },
     label: {
-        type: String,
+        require:true,
         default: ''
     },
     disabled:{
@@ -34,19 +35,22 @@ const props = defineProps({
         default: false
     }
 })
-
 const emits = defineEmits(['update:modelValue'])
-
+const value1 = reactive({
+    modelValue: ''
+})
+value1.modelValue = props.modelValue
 let itemClasses = computed(() => {
     return [
-        props.modelValue == props.label ? `item-choose` : ``
+        props.modelValue === props.label ? `item-choose` : ``
     ]
 })
 let piedboxClasses = computed(() => {
     return [
-        props.modelValue == props.label ? `radio-choose` : ``
+        props.modelValue === props.label ? `radio-choose` : ``
     ]
 })
+
 const handelChange = () => {
     emits('update:modelValue', props.label)
 }
@@ -57,6 +61,7 @@ const handelChange = () => {
     position: relative;
     display: inline-flex;
     cursor: pointer;
+    margin-right:5px;
 }
 .pied-radio-box{
     position: relative;

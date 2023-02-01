@@ -2,15 +2,12 @@
 </script>
 
 <template>
-  <div class="margin">
-    <pied-radio v-model="radio" :label="true">option1</pied-radio>
-    <pied-radio v-model="radio" :label="false" :disabled="false">option2dwqedwq</pied-radio>
-  </div>
+    <pied-checkbox></pied-checkbox>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-const radio = ref(false)
+
 </script>
 
 <style scoped>

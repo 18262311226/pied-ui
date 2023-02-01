@@ -58,14 +58,63 @@ export default{
 
 ### 单选框组
 
+<div class="margin">
+    <pied-radio-group v-model="radio1" :data="data" :keys="{label: 'label', value: 'value'}"></pied-radio-group>
+</div>
+
+::: details 代码示例
+```js
+<template>
+    <pied-radio-group v-model="radio1" data="data" keys="{label: 'label', value: 'value'}"></pied-radio-group>
+</temlate>
 
 <script>
 import { ref } from 'vue'
 export default{
     setup(){
         const radio = ref('1')
+        const data = ref([
+            {
+                label: 'option1',
+                value: 0
+            },
+            {
+                label: 'option2',
+                value: 1
+            }
+        ])
         return {
-            radio
+            radio,
+            data
+        }
+    }
+}
+</script>
+```
+:::
+
+
+
+<script>
+import { ref } from 'vue'
+export default{
+    setup(){
+        const radio = ref('1')
+        const radio1 = ref(1)
+        const data = ref([
+            {
+                label: 'option1',
+                value: 0
+            },
+            {
+                label: 'option2',
+                value: 1
+            }
+        ])
+        return {
+            radio,
+            radio1,
+            data
         }
     }
 }
