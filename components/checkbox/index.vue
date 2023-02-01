@@ -19,7 +19,7 @@ export default {
 </script>
 
 <script setup>
-import { computed, defineProps, reactive } from 'vue'
+import { computed, defineProps, ref } from 'vue'
 const props = defineProps({
     modelValue: {
         require:true,
@@ -32,26 +32,45 @@ const props = defineProps({
     disabled:{
         type: Boolean,
         default: false
+    },
+    border: {
+        type: Boolean,
+        default: false
     }
 })
 const emits = defineEmits(['update:modelValue'])
-const value1 = reactive({
-    modelValue: ''
-})
-value1.modelValue = props.modelValue
+const checklist = ref('')
+checklist.value = props.modelValue
 let itemClasses = computed(() => {
-    return [
-        props.modelValue === props.label ? `item-choose` : ``
-    ]
+    if(typeof checklist.value == 'boolean'){
+        return checklist.value ? [props.border ? 'pied-checkbox-box-border' : '','item-choose'] : [props.border ? 'pied-checkbox-box-border' : '']
+    }else {
+        return checklist.value.includes(props.label) ? [props.border ? 'pied-checkbox-box-border' : '','item-choose'] : [props.border ? 'pied-checkbox-box-border' : '']
+    }
 })
 let piedboxClasses = computed(() => {
-    return [
-        props.modelValue === props.label ? `radio-choose` : ``
-    ]
+    if(typeof checklist.value == 'boolean'){
+        return checklist.value && props.border ? ['checkbox-choose'] : []
+    }else {
+        return checklist.value.includes(props.label) && props.border ? ['checkbox-choose'] : []
+    }
 })
 
 const handelChange = () => {
-    emits('update:modelValue', props.label)
+    if(typeof checklist.value == 'boolean'){
+        checklist.value = !checklist.value
+        emits('update:modelValue', checklist.value)
+    }else {
+        let indexnum = -1
+        checklist.value.map((item,index) => {
+            let checked = checklist.value[index]
+            if(checked === props.label){
+                indexnum = index
+            }
+        })
+        indexnum != -1 ? checklist.value.splice(indexnum, 1) : checklist.value.push(props.label)
+        emits('update:modelValue', checklist.value) 
+    }
 }
 </script>
 
@@ -67,14 +86,16 @@ const handelChange = () => {
     display: inline-flex;
     min-width:100px;
     height:30px;
-    background:rgb(230, 227, 227);
-    border:1px solid #ddd;
     align-items: center;
     justify-content: center;
     color:#333;
     cursor: pointer;
     border-radius: 4px;
     padding:0 5px;
+}
+.pied-checkbox-box-border{
+    background:rgb(230, 227, 227);
+    border:1px solid #ddd;
 }
 .checkbox-choose{
     box-shadow: 1px 1px 0px 0px purple;
@@ -96,7 +117,6 @@ const handelChange = () => {
     position: relative;
     width:20px;
     height:20px;
-    border-radius: 50%;
     background:#aaa;
     margin-right:10px;
 }
@@ -104,7 +124,6 @@ const handelChange = () => {
     position:absolute;
     left:50%;
     top:50%;
-    border-radius: 50%;
     transform: translate(-50%, -50%);
     width:10px;
     height:10px;

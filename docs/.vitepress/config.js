@@ -16,20 +16,36 @@ module.exports = {
               ]
             },
             {
-                text: 'Basic',
-                items: [
-                  { text: 'Icon 图标', link: '../components/icon.md' },
-                  { text: 'Button 按钮', link: '/../components/button.md' },
-                ]
+              text: 'Basic',
+              items: [
+                { text: 'Icon 图标', link: '../components/icon.md' },
+                { text: 'Button 按钮', link: '/../components/button.md' },
+              ]
             },
             {
-                text: 'Form',
-                items: [
-                  { text: 'Radio 单选框', link: '../components/radio.md' },
-                  { text: 'Checkbox 多选框', link: '/../components/checkbox.md' },
-                  { text: 'Input 输入框', link: '/../components/button.md' },
-                  { text: 'Select 选择框', link: '/../components/button.md' },
-                ]
+              text: 'Form',
+              items: [
+                { text: 'Radio 单选框', link: '../components/radio.md' },
+                { text: 'Checkbox 多选框', link: '/../components/checkbox.md' },
+                { text: 'Input 输入框', link: '/../components/input.md' },
+                { text: 'Select 选择框', link: '/../components/select.md' },
+              ]
+            },
+            {
+              text: 'Data',
+              items: []
+            },
+            {
+              text: 'Notice',
+              items: []
+            },
+            {
+              text: 'Other',
+              items: []
+            },
+            {
+              text: 'Work',
+              items: []
             }
         ],
         nav: [
