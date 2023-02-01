@@ -19,7 +19,6 @@ export default {
 </script>
 
 <script setup>
-import emiter from '../../utils/emiter'
 import { computed, defineProps, reactive } from 'vue'
 const props = defineProps({
     modelValue: {

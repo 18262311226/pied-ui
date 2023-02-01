@@ -28,7 +28,6 @@ module.exports = {
                   { text: 'Radio 单选框', link: '../components/radio.md' },
                   { text: 'Checkbox 多选框', link: '/../components/checkbox.md' },
                   { text: 'Input 输入框', link: '/../components/button.md' },
-                  { text: 'InputNumber 计数器', link: '/../components/button.md' },
                   { text: 'Select 选择框', link: '/../components/button.md' },
                 ]
             }
