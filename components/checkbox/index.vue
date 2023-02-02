@@ -96,6 +96,7 @@ const handelChange = () => {
     cursor: pointer;
     border-radius: 4px;
     padding:0 5px;
+    transition:0.5s;
 }
 .pied-checkbox-box-border{
     background:rgb(230, 227, 227);

@@ -2,8 +2,12 @@
 </script>
 
 <template>
-  <pied-input></pied-input>
-  <button @click="handle">dian</button>
+  <div style="width:200px;">
+    <pied-input></pied-input>
+    <pied-input></pied-input>
+  </div>
+  
+  <!-- <button @click="handle">dian</button> -->
 </template>
 
 <script setup>
@@ -30,7 +34,7 @@ const handle = () => {
 .margin{
   margin-bottom:10px;
 }
-.pied-radio{
-  margin-right:10px;
+.pied-input{
+  margin-bottom:20px;
 }
 </style>
