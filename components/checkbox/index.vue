@@ -1,5 +1,5 @@
 <template>
-<div class="pied-checkbox" :class="piedClasses">
+<div class="pied-checkbox">
     <div class="pied-checkbox-box" :class="piedboxClasses" @click="handelChange">
         <div class="checkbox">
             <div class="checkbox-item" :class="itemClasses"></div>
@@ -83,6 +83,7 @@ const handelChange = () => {
     display: inline-flex;
     cursor: pointer;
     margin-right:5px;
+    box-sizing: border-box;
 }
 .pied-checkbox-box{
     position: relative;

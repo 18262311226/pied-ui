@@ -4,47 +4,48 @@
           v-model="checkboxValue" 
           @click="change(item)" 
           v-for="(item, index) in data" 
-          :key="index" 
+          :key="index"
+          :disabled="item.disabled"
+          :border="item.border" 
           :label="item[keys.value]">
-              {{item[keys.label]}}
+            {{item[keys.label]}}
       </pied-checkbox>
     </div>
-  </template>
+</template>
   
-  <script>
-  export default {
-      name: 'piedCheckboxGroup'
-  }
-  </script>
+<script>
+export default {
+    name: 'piedCheckboxGroup'
+}
+</script>
   
-  <script setup>
-  import { defineProps, defineEmits, ref } from 'vue'
-  const emits = defineEmits(['update:modelValue'])
-  const props = defineProps({
-      modelValue: {
-          type: String,
-          default: ''
-      },
-      data: {
-          type: Array,
-          default: () => []
-      },
-      keys: {
-          type: Object,
-          default: () => ({})
-      }
-  })
-  
-  let checkboxValue = ref(props.modelValue)
-  const change = (item) => {
-      emits('update:modelValue', checkboxValue.value)
-      emits('change', checkboxValue.value)
-  }
-  </script>
-  
-  <style scoped>
-  .pied-checkbox-group{
-      display: flex;
-      
-  }
-  </style>
+<script setup>
+import { defineProps, defineEmits, ref } from 'vue'
+const emits = defineEmits(['update:modelValue'])
+const props = defineProps({
+    modelValue: {
+        type: String,
+        default: ''
+    },
+    data: {
+        type: Array,
+        default: () => []
+    },
+    keys: {
+        type: Object,
+        default: () => ({})
+    }
+})
+
+let checkboxValue = ref(props.modelValue)
+const change = (item) => {
+    emits('update:modelValue', checkboxValue.value)
+    emits('change', checkboxValue.value)
+}
+</script>
+
+<style scoped>
+.pied-checkbox-group{
+    display: flex;
+}
+</style>
