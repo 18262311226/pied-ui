@@ -2,8 +2,7 @@
 </script>
 
 <template>
-  <pied-checkbox-group v-model="checklist" :data="data" :keys="{label: 'label', value: 'value'}">
-  </pied-checkbox-group>
+  <pied-input></pied-input>
   <button @click="handle">dian</button>
 </template>
 
