@@ -2,22 +2,9 @@
 </script>
 
 <template>
-<pied-row>
-  <pied-col :span="15">
-      <pied-input v-model="text" label="userName" center></pied-input>
-  </pied-col>
-  <pied-col :span="15">
-      <pied-input v-model="text" label="userName" center></pied-input>
-  </pied-col>
-</pied-row>
-<pied-row>
-  <pied-col :span="15">
-      <pied-input v-model="text" label="userName" center></pied-input>
-  </pied-col>
-  <pied-col :span="15">
-      <pied-input v-model="text" label="userName" center></pied-input>
-  </pied-col>
-</pied-row>
+  <div>
+    <pied-select></pied-select>
+  </div>
   
   <!-- <button @click="handle">dian</button> -->
 </template>
