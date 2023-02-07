@@ -75,6 +75,7 @@ const handelChange = () => {
     cursor: pointer;
     border-radius: 4px;
     padding:0 5px;
+    transition: 0.5s;
 }
 .radio-choose{
     box-shadow: 1px 1px 0px 0px purple;

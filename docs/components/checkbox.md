@@ -131,31 +131,26 @@ export default{
 | v-model      |  绑定值          | -----       | -----          |  String,Boolean,Number | 
 | disabled     |   禁用           |   false,true |  false        |  Boolean |
 | label        |   单选值         |    -----     | -----         | String,Boolean,Number  |
-| key          |   单选组绑定key,value |    ----- | {}           |  Object               |
+| keys          |   单选组绑定key,value |    ----- | {}           |  Object               |
 | data         |   单选组数据    |    -----       | -----        |  Arrary |
 
 <script>
-import { ref } from 'vue'
 export default {
-    setup(){
-        const checkbox = ref(false)
-        const checkbox1 = ref(true)
-        const checkbox2 = ref([])
-        const datalist = [
-            {
-                label: 'option1',
-                value: 0
-            },
-            {
-                label: 'option2',
-                value: 1
-            }
-        ]
+    data(){
         return {
-            checkbox,
-            checkbox1,
-            checkbox2
-            // datalist
+            checkbox: false,
+            checkbox1: true,
+            checkbox2: [],
+            datalist:[
+                {
+                    label: 'option1',
+                    value: 0
+                },
+                {
+                    label: 'option2',
+                    value: 1
+                }
+            ]
         }
     }
 }

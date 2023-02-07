@@ -48,6 +48,5 @@ const change = (item) => {
 <style scoped>
 .pied-radio-group{
     display: flex;
-    
 }
 </style>

@@ -2,9 +2,18 @@
 </script>
 
 <template>
-  <div style="width:200px;">
-    <pied-input></pied-input>
-    <pied-input></pied-input>
+  <div style="width:500px;height:800px;border:1px solid #333;">
+    <div style="width:400px;margin:auto;">
+      <pied-input v-model="text" label="userName" disabled center></pied-input>
+      <pied-input v-model="text1" label="passWord" type="password" center></pied-input>
+      <pied-radio-group v-model="checkbox" :data="checkboxlist" :keys="{label:'label', value:'value'}">
+      </pied-radio-group>
+      <div style="display:flex;justify-content:space-between;">
+        <pied-button>提交</pied-button>
+        <pied-button type="error">重置</pied-button>
+      </div>
+    </div>
+
   </div>
   
   <!-- <button @click="handle">dian</button> -->
@@ -12,21 +21,21 @@
 
 <script setup>
 import { ref } from 'vue'
-const checklist = ref([])
-const data = ref([
-  {
-    value: 0,
-    label: '文科',
-    border: true
-  },
+const text = ref('123121')
+const text1 = ref('')
+const checkbox = ref('')
+const checkboxlist = ref([
   {
     value: 1,
-    label: '理科',
-    disabled: true
+    label: 'option1'
+  },
+  {
+    value: 2,
+    label: 'option2'
   }
 ])
 const handle = () => {
-  console.log(checklist.value)
+  console.log(text.value)
 }
 </script>
 
@@ -34,7 +43,10 @@ const handle = () => {
 .margin{
   margin-bottom:10px;
 }
-.pied-input{
-  margin-bottom:20px;
+.pied-radio-group{
+  margin-top:20px;
+}
+.pied-button{
+  margin-top:20px;
 }
 </style>
