@@ -58,8 +58,9 @@ inputValue.value = props.modelValue
 const labelClasses = ref([])
 const topLineClasses = ref([])
 const bottomLineClasses = ref([])
-watch(() => props.modelValue, () => {
+watch(() => props.modelValue, (newValue, oldValue) => {
   if(props.modelValue){
+    inputValue.value = newValue
     labelClasses.value = ['pied-input-label-active']
     topLineClasses.value = ['pied-input-top-line-active']
     bottomLineClasses.value = ['pied-input-bottom-line-active']
@@ -113,7 +114,7 @@ const onInput = () => {
     width:100%;
     height:35px;
     transition: 0.5s;
-    color:#aaa;
+    color:purple;
     font-size: 18px;
     background:transparent;
     outline: none;
@@ -128,7 +129,7 @@ const onInput = () => {
     background:linear-gradient(120deg, skyblue, purple);
   }
   .pied-input-top-line-active{
-    top:25px;
+    top:22px;
     height:4px;
   }
   .pied-input-bottom-line{

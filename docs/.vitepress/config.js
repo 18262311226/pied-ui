@@ -19,6 +19,8 @@ module.exports = {
               text: 'Basic',
               items: [
                 { text: 'Icon 图标', link: '../components/icon.md' },
+                { text: 'RowCol 行列', link: '../components/rowcol.md' },
+                { text: 'Container 布局', link: '../components/container.md' },
                 { text: 'Button 按钮', link: '/../components/button.md' },
               ]
             },
@@ -29,6 +31,8 @@ module.exports = {
                 { text: 'Checkbox 多选框', link: '../components/checkbox.md' },
                 { text: 'Input 输入框', link: '../components/input.md' },
                 { text: 'Select 选择框', link: '../components/select.md' },
+                { text: 'Upload 上传文件', link: '../components/select.md' },
+                { text: 'Form 表单', link: '../components/select.md' },
               ]
             },
             {

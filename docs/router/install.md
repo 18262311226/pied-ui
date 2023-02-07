@@ -9,5 +9,5 @@ npm install
 ### 使用npm下载ui组件库
 
 ``` js
-npm install pied-ui -S
+npm install pied-design-ui -S
 ```
