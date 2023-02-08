@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div>
+  <div style="width:200px;">
     <pied-select></pied-select>
   </div>
   

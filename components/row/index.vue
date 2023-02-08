@@ -28,6 +28,7 @@ let classes = computed(() => {
 <style lang="scss" scoped>
 .pied-row{
     display:flex;
+    flex-wrap: no-wrap;
     width:100%;
     height:auto;
 }
