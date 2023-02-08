@@ -200,9 +200,10 @@ const itemClick = (item) => {
 }
 
 .fade-enter-from,.fade-leave-to{
-    transform:scale(0);
+    transform:scale(0.5);
     opacity: 0;
 }
+
 .fade-enter-active,.fade-leave-active {
     transition: all 0.5s;
 }
@@ -218,6 +219,7 @@ const itemClick = (item) => {
   -moz-border-radius: 2em;
   border-radius:2em;
 }
+
 .content-list::-webkit-scrollbar-thumb {
   background-color: rgb(147,147,153,0.5);
   -webkit-border-radius: 2em;
