@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as n}from"./app.8acbfb45.js";const d=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"components/container.md"}'),o={name:"components/container.md"};function a(r,c,s,p,i,_){return n(),t("div")}const f=e(o,[["render",a]]);export{d as __pageData,f as default};
