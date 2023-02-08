@@ -3,18 +3,23 @@
 
 <template>
   <div style="width:200px;">
-    <pied-select></pied-select>
+    <pied-select v-model="value" filterable :data="list" @change="change"></pied-select>
+    <pied-select v-model="value1" filterable :data="list" @change="change">
+      <template v-slot="scope">
+        <div class="flex"><p>{{scope.data.value}}</p><p>{{scope.data.label}}</p></div>
+      </template>
+    </pied-select>
   </div>
+
   
-  <!-- <button @click="handle">dian</button> -->
+  <button @click="handle">dian</button>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-const text = ref('')
-const text1 = ref('')
-const checkbox = ref('')
-const checkboxlist = ref([
+const value = ref('1')
+const value1 = ref('2')
+const list = ref([
   {
     value: 1,
     label: 'option1'
@@ -22,10 +27,37 @@ const checkboxlist = ref([
   {
     value: 2,
     label: 'option2'
+  },
+  {
+    value: 3,
+    label: 'option3'
+  },
+  {
+    value: 4,
+    label: 'option4'
+  },
+  {
+    value: 5,
+    label: 'option5'
+  },
+  {
+    value: 6,
+    label: 'option6'
+  },
+  {
+    value: 7,
+    label: 'option7'
+  },
+  {
+    value: 8,
+    label: 'option8'
   }
 ])
 const handle = () => {
-  console.log(text.value)
+  console.log(value.value)
+}
+const change = (item) => {
+  console.log(item)
 }
 </script>
 
@@ -35,5 +67,10 @@ const handle = () => {
 }
 .pied-col{
   margin-right:10px;
+}
+.flex{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 </style>

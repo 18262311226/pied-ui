@@ -31,7 +31,10 @@ const props = defineProps({
     },
     keys: {
         type: Object,
-        default: () => ({})
+        default: () => ({
+            label: 'label',
+            value: 'value'
+        })
     }
 })
 

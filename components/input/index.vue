@@ -52,7 +52,7 @@ const props = defineProps({
     default: false
   }
 })
-const emits = defineEmits(['update:modelValue'])
+const emits = defineEmits(['update:modelValue', 'blur', 'input', 'focus'])
 let inputValue = ref('')
 inputValue.value = props.modelValue
 const labelClasses = ref([])
@@ -72,6 +72,7 @@ const onFocus = () => {
   labelClasses.value = ['pied-input-label-active']
   topLineClasses.value = ['pied-input-top-line-active']
   bottomLineClasses.value = ['pied-input-bottom-line-active']
+  emits('focus', inputValue.value)
 }
 const onBlur = () => {
   if(!inputValue.value){
@@ -79,9 +80,11 @@ const onBlur = () => {
     topLineClasses.value = []
     bottomLineClasses.value = []
   }
+  emits('blur', inputValue.value)
 }
 const onInput = () => {
   emits('update:modelValue', inputValue.value)
+  emits('input', inputValue.value)
 }
 </script>
 

@@ -1,22 +1,24 @@
 <template>
   <div class="pied-select" @click="handelShow">
-    <div class="pied-select-value">好看</div>
+    <div class="pied-select-value">{{inputLabel}}</div>
     <div class="pied-select-icon">&gt;</div>
     <transition name="fade">
         <div class="select-bg" v-if="selectBg" @click.stop.self="handelClose">
             <div class="bg-main">
-                <div class="main-select-input">
-                    <pied-input label="search" center></pied-input>
+                <div class="main-select-input" v-if="filterable">
+                    <pied-input v-model="searchValue" @input="onInput" label="search" center></pied-input>
                 </div>
                 <div class="main-select-content">
+                    <p class="tip">select list</p>
                     <ul class="content-list">
                         <li class="list-item" 
-                            v-for="(item,index) in 20" 
+                            v-for="(item,index) in showList" 
                             :key="index"
-                            :class="[currentItemIndex == index ? 'itemActive' : '']"
-                            @click="itemClick(index)"
+                            :class="[currentItemIndex == item[keys.value] ? 'itemActive' : '']"
+                            @click="itemClick(item)"
                         >
-                            option{{index}}
+                            <template v-if="!slots['default']">{{item[keys.label]}}</template>
+                            <slot v-else :data="item"></slot>
                         </li>
                     </ul>
                 </div>
@@ -33,18 +35,68 @@ export default {
 </script>
 
 <script setup>
-import { ref } from 'vue'
+import { useScrollLock } from '@vueuse/core'
+import { ref, defineProps, watch, computed, useSlots } from 'vue'
+const emits = defineEmits(['update:modelValue', 'change'])
+const props = defineProps({
+    modelValue: {
+        type: String,
+        default: ''
+    },
+    data: {
+        type: Array,
+        default: () => []
+    },
+    filterable:{
+        type: Boolean,
+        default: false
+    },
+    keys: {
+        type: Object,
+        default: {
+            label: 'label',
+            value: 'value'
+        }
+    }
+})
+const isLocked = useScrollLock(document.body)
+const slots = useSlots();
 const selectBg = ref(false)
 const currentItemIndex = ref('')
 const inputValue = ref('')
+const inputLabel = ref('')
+const searchValue = ref('')
+inputValue.value = props.modelValue
+const showList = computed(() => {
+    return props.data.filter(item => item[props.keys.label].includes(searchValue.value))
+})
+watch(() => props.modelValue, (newValue, oldValue) => {
+    inputValue.value = newValue
+    currentItemIndex.value = inputValue.value
+    props.data.forEach(item => {
+        if(item[props.keys.value] == inputValue.value){
+            inputLabel.value = item[props.keys.label]
+        }
+    })
+}, {
+    immediate: true
+})
 const handelShow = () => {
     selectBg.value = true
+    isLocked.value = true
 }
 const handelClose = () => {
     selectBg.value = false
+    isLocked.value = false
 }
-const itemClick = (index) => {
-    currentItemIndex.value = index
+const itemClick = (item) => {
+    currentItemIndex.value = item[props.keys.value]
+    if(item[props.keys.value] != inputValue.value) emits('change', item)
+    inputValue.value = item[props.keys.value]
+    inputLabel.value = item[props.keys.label]
+    emits('update:modelValue', inputValue.value)
+    searchValue.value = ''
+    handelClose()
 }
 </script>
 
@@ -63,7 +115,7 @@ const itemClick = (index) => {
         height:35px;
         background:#fff;
         color:rgb(113, 112, 112);
-        font-size: 15px;
+        font-size: 14px;
         font-weight: 700;
         text-align: center;
         line-height:35px;
@@ -84,26 +136,41 @@ const itemClick = (index) => {
         left:0;
         width:100%;
         height:100vh;
+        z-index:9999;
         background:linear-gradient(90deg, purple, skyblue);
         .bg-main{
             width:500px;
+            height:100vh;
             margin:auto;
+            position: relative;
             .main-select-input{
                 width:300px;
-                margin:20px auto;
+                position: absolute;
+                left:50%;
+                transform: translateX(-50%);
+                top:20px;
             }
             .main-select-content{
                 width:100%;
                 height:400px;
-                margin:auto;
+                position: absolute;
+                left:0;
+                top:50%;
+                transform: translateY(-50%);
                 border-radius: 20px;
                 padding:10px;
                 box-sizing: border-box;
+                .tip{
+                    color:#fff;
+                    font-size: 18px;
+                    font-style: italic;
+                }
                 .content-list{
                     width:100%;
                     height:100%;
-                    overflow:hidden ;
+                    overflow:hidden;
                     overflow-y: auto;
+                    list-style: none;
                     .list-item{
                         width:100%;
                         height:40px;
