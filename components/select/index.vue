@@ -147,8 +147,8 @@ const itemClick = (item) => {
                 width:300px;
                 position: absolute;
                 left:50%;
-                transform: translateX(-50%);
-                top:20px;
+                transform: translate(-50%, -50%);
+                top:15%;
             }
             .main-select-content{
                 width:100%;

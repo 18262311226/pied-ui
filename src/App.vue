@@ -3,12 +3,7 @@
 
 <template>
   <div style="width:200px;">
-    <pied-select v-model="value" filterable :data="list" @change="change"></pied-select>
-    <pied-select v-model="value1" filterable :data="list" @change="change">
-      <template v-slot="scope">
-        <div class="flex"><p>{{scope.data.value}}</p><p>{{scope.data.label}}</p></div>
-      </template>
-    </pied-select>
+    <pied-upload></pied-upload>
   </div>
 
   
