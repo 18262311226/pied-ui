@@ -55,15 +55,6 @@ const changeFile = (value) => {
     cursor: pointer;
     background: transparent;
   }
-  .button-bg{
-    width:99%;
-    height:48px;
-    position: absolute;
-    // left:0;
-    top:0;
-    z-index:-1;
-    background:purple;
-  }
 }
 
 .fade-enter-from,.fade-leave-to{
