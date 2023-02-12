@@ -3,12 +3,9 @@
   <div class="upload-source">
     <input type="file" ref="file" @change="changeFile">
   </div>
-  <div class="upload-button" @click="open" @mouseover="onMouseover" @mouseleave="onMouseleave">
+  <pied-button size="medium" @click="open">
     上传文件
-  </div>
-  <transition name="fade">
-    <div v-if="bgShow" class="button-bg"></div>
-  </transition>
+  </pied-button>
 </div>
 </template>
 
@@ -26,14 +23,6 @@ const open = () => {
   file.value.dispatchEvent(new MouseEvent('click')) 
 }
 
-const onMouseover = () => {
-  bgShow.value = true
-}
-
-const onMouseleave = () => {
-  bgShow.value = false
-}
-
 const changeFile = (value) => {
   console.log(value.target.files)
 }
@@ -42,18 +31,8 @@ const changeFile = (value) => {
 <style lang="scss" scoped>
 .pied-upload{
   width:100%;
-  position: relative;
   .upload-source{
     display: none;
-  }
-  .upload-button{
-    width:100%;
-    height:50px;
-    border:2px solid purple;
-    text-align: center;
-    line-height: 45px;
-    cursor: pointer;
-    background: transparent;
   }
 }
 

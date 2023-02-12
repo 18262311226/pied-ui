@@ -1,4 +1,5 @@
 import { defineAsyncComponent } from 'vue'
+import '../src/assets/icons/iconfont.css'
 
 export default {
     install (app) {

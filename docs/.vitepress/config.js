@@ -31,8 +31,8 @@ module.exports = {
                 { text: 'Checkbox 多选框', link: '../components/checkbox.md' },
                 { text: 'Input 输入框', link: '../components/input.md' },
                 { text: 'Select 选择框', link: '../components/select.md' },
-                { text: 'Upload 上传文件', link: '../components/select.md' },
-                { text: 'Form 表单', link: '../components/select.md' },
+                { text: 'Upload 上传文件', link: '../components/upload.md' },
+                { text: 'Form 表单', link: '../components/form.md' },
               ]
             },
             {

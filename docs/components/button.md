@@ -15,10 +15,10 @@
     <pied-button type="error" round>危险</pied-button>
 </div>
 <div class="margin">
-    <pied-button type="primary" circle></pied-button>
-    <pied-button type="info" circle></pied-button>
-    <pied-button type="warning" circle></pied-button>
-    <pied-button type="error" circle></pied-button>
+    <pied-button type="primary" circle icon="pied-icon-vertical-align-botto"></pied-button>
+    <pied-button type="info" circle icon="pied-icon-home1"></pied-button>
+    <pied-button type="warning" circle icon="pied-icon-a-formatpainter1"></pied-button>
+    <pied-button type="error" circle icon="pied-icon-fire"></pied-button>
 </div>
 
 ::: details 代码示例
@@ -42,10 +42,10 @@
     <pied-button type="error" round>危险</pied-button>
 </div>
 <div class="margin">
-    <pied-button type="primary" circle></pied-button>
-    <pied-button type="info" circle></pied-button>
-    <pied-button type="warning" circle></pied-button>
-    <pied-button type="error" circle></pied-button>
+    <pied-button type="primary" circle icon="pied-icon-vertical-align-botto"></pied-button>
+    <pied-button type="info" circle icon="pied-icon-home1"></pied-button>
+    <pied-button type="warning" circle icon="pied-icon-a-formatpainter1"></pied-button>
+    <pied-button type="error" circle icon="pied-icon-fire"></pied-button>
 </div>
 ```
 :::
@@ -107,7 +107,7 @@
 | 参数        |      说明      |  可选值 | 默认值 | 类型 | 
 | -------------| :-------------: | ----------: | -------------: |  ----------: | 
 | type      | 按钮类型 | primary,info,warning,error | primary |  String | 
-| size      |   按钮大小    |   mini,small,mediue |  small |  String |
+| size      |   按钮大小    |   mini,small,medium |  small |  String |
 | loading |   加载    |    true,false | false |  Boolean |
 | disbaled |   禁用    |    true,false | false |  Boolean |
 

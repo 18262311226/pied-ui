@@ -3,6 +3,7 @@
     :class="classes"
     :disabled="disabled || loading"
   >
+    <i v-show="icon && !loading" :class="[icon, 'icon-button']" :style="{marginRight: slots.default ? '10px' : '0'}"></i>
     <span v-show="loading" class="pied-button-before"></span>
     <span v-show="loading" class="pied-button-middle"></span>
     <span v-show="loading" class="pied-button-after"></span>
@@ -19,7 +20,7 @@ export default {
 </script>
 
 <script setup>
-import { computed, defineProps } from 'vue'
+import { computed, defineProps, useSlots } from 'vue'
 const props = defineProps({
   type: {
     type: String,
@@ -60,18 +61,29 @@ let classes = computed(() => {
     props.disabled || props.loading ? `disabled` : ``,
   ]
 })
+
+const slots = useSlots()
 </script>
 
 
 <style scoped>
+.icon-button{
+  font-size: 14px;
+  display:block;
+  width:15px;
+  height:16px;
+  line-height: 16px;
+}
 .pied-button{
   position: relative;
-  display: inline-block;
+  display: inline-flex;
   padding:8px 30px;
   cursor: pointer;
   font-size: 12px;
   border-radius: 5px;
   overflow:hidden;
+  justify-content: center;
+  align-items: center;
 }
 .pied-button-primary{
   background:linear-gradient(120deg, rgb(74, 74, 176), #41d1ff);
