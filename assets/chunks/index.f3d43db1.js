@@ -1,0 +1,1 @@
+import{_ as n,h as o,o as r,c as _,l,n as c,k as d}from"../app.34b434c6.js";const p={name:"piedRow"},i=Object.assign(p,{props:{align:{type:String,default:"left"}},setup(e){const s=e;let t=o(()=>[`pied-row-${s.align}`]);return(a,u)=>(r(),_("div",{class:c(["pied-row",d(t)])},[l(a.$slots,"default",{},void 0,!0)],2))}}),m=n(i,[["__scopeId","data-v-8831286b"]]);export{m as default};
