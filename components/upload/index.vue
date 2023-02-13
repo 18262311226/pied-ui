@@ -20,7 +20,7 @@ import { ref } from 'vue'
 const file = ref('')
 const bgShow = ref(false)
 const open = () => {
-  file.value.dispatchEvent(new MouseEvent('click')) 
+  file.value.click()
 }
 
 const changeFile = (value) => {

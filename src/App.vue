@@ -3,7 +3,8 @@
 
 <template>
   <div class="iconbox flex">
-    <div v-for="(item, index) in iconlist" :key="index" :class="[`pied-icon-${item.font_class}`, 'icon']"></div>
+    <pied-upload></pied-upload>
+    <!-- <div v-for="(item, index) in iconlist" :key="index" :class="[`pied-icon-${item.font_class}`, 'icon']"></div> -->
   </div>
 </template>
 

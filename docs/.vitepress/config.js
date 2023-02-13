@@ -53,13 +53,14 @@ module.exports = {
             }
         ],
         nav: [
+            { text: '首页', link: '../index.md' },
             { text: '组件', link: '../content.md' },
             {
                 text: '语言',
                 items: [
-                  { text: 'english', link: '/item-1' },
-                  { text: 'chinese', link: '/item-2' },
-                  { text: 'japan', link: '/item-3' }
+                  { text: 'english'},
+                  { text: 'chinese'},
+                  { text: 'japan' }
                 ]
             },
             { text: '源码', link: 'https://github.com/18262311226/pied-ui' }
