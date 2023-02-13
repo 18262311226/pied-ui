@@ -41,7 +41,10 @@ module.exports = {
             },
             {
               text: 'Notice',
-              items: []
+              items: [
+                { text: 'Confirm 弹窗', link: '../components/confirm.md' },
+                { text: 'Message 消息提示', link: '../components/message.md' }
+              ]
             },
             {
               text: 'Other',
@@ -49,7 +52,9 @@ module.exports = {
             },
             {
               text: 'Work',
-              items: []
+              items: [
+                { text: 'Waterfall 瀑布流', link: '../components/waterfall.md' }
+              ]
             }
         ],
         nav: [
