@@ -53,17 +53,9 @@ module.exports = {
             }
         ],
         nav: [
-            { text: '首页', link: '../index.md' },
-            { text: '组件', link: '../content.md' },
-            {
-                text: '语言',
-                items: [
-                  { text: 'english'},
-                  { text: 'chinese'},
-                  { text: 'japan' }
-                ]
-            },
-            { text: '源码', link: 'https://github.com/18262311226/pied-ui' }
+          { text: '首页', link: '../index.md' },
+          { text: '组件', link: '../content.md' },
+          { text: '源码', link: 'https://github.com/18262311226/pied-ui' }
         ],
         footer: {
             message: 'Released under the MIT License.',

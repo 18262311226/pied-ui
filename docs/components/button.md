@@ -114,7 +114,7 @@
 <script></script>
 
 
-<style>
+<style scoped>
 .margin{
     margin-bottom:10px;
 }

@@ -193,7 +193,7 @@
 
 </script>
 
-<style>
+<style scoped>
 .box{
     width:100%;
     min-height:400px;
