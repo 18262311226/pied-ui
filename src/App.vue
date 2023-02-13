@@ -4,15 +4,19 @@
 <template>
   <div class="iconbox flex">
     <pied-upload></pied-upload>
+    <pied-button @click="handel">点击</pied-button>
   </div>
 </template>
 
 <script setup>
 import { icons} from '../utils/icons'
 import { ref } from 'vue'
+import { confirm } from '../components/index'
 console.log(icons)
 const iconlist =icons.glyphs
-
+const handel = () => {
+  confirm('标题', '我是一个内容', '取消', '确定')
+}
 </script>
 
 <style scoped>

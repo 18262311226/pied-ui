@@ -1,5 +1,8 @@
 import { defineAsyncComponent } from 'vue'
+import '../src/style/style.css'
 import '../src/assets/icons/iconfont.css'
+export { confirm } from './confirm/index'
+export { message } from './message/index'
 
 export default {
     install (app) {

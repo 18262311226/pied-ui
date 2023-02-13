@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import './style/style.scss'
+import './style/style.css'
 import App from './App.vue'
 import PiedUi from '../components/index'
 // import PiedUi from 'pied-design-ui'
