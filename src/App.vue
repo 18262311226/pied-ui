@@ -4,7 +4,6 @@
 <template>
   <div class="iconbox flex">
     <pied-upload></pied-upload>
-    <!-- <div v-for="(item, index) in iconlist" :key="index" :class="[`pied-icon-${item.font_class}`, 'icon']"></div> -->
   </div>
 </template>
 
