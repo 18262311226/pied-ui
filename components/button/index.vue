@@ -84,6 +84,7 @@ const slots = useSlots()
   overflow:hidden;
   justify-content: center;
   align-items: center;
+  margin-right:10px;
 }
 .pied-button-primary{
   background:linear-gradient(120deg, rgb(74, 74, 176), #41d1ff);

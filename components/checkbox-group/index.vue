@@ -6,7 +6,7 @@
           v-for="(item, index) in data" 
           :key="index"
           :disabled="item.disabled"
-          :border="item.border" 
+          :border="border" 
           :label="item[keys.value]">
             {{item[keys.label]}}
       </pied-checkbox>
@@ -33,7 +33,14 @@ const props = defineProps({
     },
     keys: {
         type: Object,
-        default: () => ({})
+        default: () => ({
+            label: 'label',
+            value: 'value'
+        })
+    },
+    border: {
+        type: Boolean,
+        default: false
     }
 })
 

@@ -71,7 +71,7 @@ const handelChange = () => {
     border:1px solid #ddd;
     align-items: center;
     justify-content: center;
-    color:#333;
+    color:#ccc;
     cursor: pointer;
     border-radius: 4px;
     padding:0 5px;

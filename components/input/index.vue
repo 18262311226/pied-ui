@@ -33,7 +33,7 @@ import { defineProps, ref, watch } from 'vue'
 const props = defineProps({
   label: {
     type: String,
-    default: 'input'
+    default: ''
   },
   modelValue: {
     type: String,
@@ -95,7 +95,7 @@ const onInput = () => {
   position: relative;
   margin-bottom:0;
   .pied-input-label{
-    display: inline;
+    display: inline-block;
     position: absolute;
     top:60%;
     left:0;

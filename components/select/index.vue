@@ -74,7 +74,7 @@ watch(() => props.modelValue, (newValue, oldValue) => {
     inputValue.value = newValue
     currentItemIndex.value = inputValue.value
     props.data.forEach(item => {
-        if(item[props.keys.value] == inputValue.value){
+        if(item[props.keys.value] === inputValue.value){
             inputLabel.value = item[props.keys.label]
         }
     })
@@ -91,7 +91,7 @@ const handelClose = () => {
 }
 const itemClick = (item) => {
     currentItemIndex.value = item[props.keys.value]
-    if(item[props.keys.value] != inputValue.value) emits('change', item)
+    if(item[props.keys.value] !== inputValue.value) emits('change', item)
     inputValue.value = item[props.keys.value]
     inputLabel.value = item[props.keys.label]
     emits('update:modelValue', inputValue.value)
