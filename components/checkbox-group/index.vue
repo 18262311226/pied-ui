@@ -53,6 +53,6 @@ const change = (item) => {
 
 <style scoped>
 .pied-checkbox-group{
-    display: flex;
+    /* display: flex; */
 }
 </style>

@@ -7,16 +7,18 @@
       <pied-form-item prop="password" >
         <pied-input v-model="form.password" label="password" type="password"></pied-input>
       </pied-form-item>
-      <pied-form-item label="兴趣爱好" prop="like" label-width="100px">
-        <pied-checkbox-group border v-model="form.like" :data="checkList">
+      <pied-form-item label="兴趣爱好" prop="like" label-width="100px" bottom="20px">
+        <pied-checkbox-group v-model="form.like" :data="checkList">
         </pied-checkbox-group>
       </pied-form-item>
-      <pied-form-item label="国籍" prop="country" label-width="100px">
+      <pied-form-item label="国籍" prop="country" label-width="100px" bottom="20px">
         <pied-select v-model="country" :data="countryList"></pied-select>
       </pied-form-item>
       <pied-form-item>
-        <pied-button type="error">重置</pied-button>
-        <pied-button>提交</pied-button>
+        <div style="text-align:center">
+          <pied-button type="error">重置</pied-button>
+          <pied-button>提交</pied-button>
+        </div>
       </pied-form-item>
     </pied-form>
   </div>
@@ -93,9 +95,10 @@ const countryList = ref([
   align-items: center;
 }
 .card{
-  width:600px;
-  box-shadow: 2px 2px 3px 4px #ddd;
-  background:linear-gradient(90deg, #aaa, skyblue);
+  width:400px;
+  /* box-shadow: 2px 2px 3px 4px #ddd; */
+  /* background:linear-gradient(90deg, #333, #ccc) transparent; */
+  background:rgba(1, 1, 1, .6);
   margin:100px auto;
   border-radius: 10px;
 }

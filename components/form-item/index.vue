@@ -1,5 +1,5 @@
 <template>
-  <div class="pied-form-item">
+  <div class="pied-form-item" :style="{marginBottom: bottom}">
     <div class="form-item-label" :style="{width: labelWidth}">{{label}}</div>
     <div class="form-item-value">
       <slot></slot>
@@ -28,6 +28,10 @@ const props = defineProps({
   labelWidth: {
     type: String,
     default: '0px'
+  },
+  bottom: {
+    type: String,
+    default: '0px'
   }
 })
 
@@ -40,7 +44,7 @@ const props = defineProps({
   padding: 0 20px;
   box-sizing: border-box;
   align-items:center;
-  margin-bottom:15px;
+  margin-bottom:0;
   .form-item-label{
     color:skyblue;
     display:inline;

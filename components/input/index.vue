@@ -107,7 +107,7 @@ const onInput = () => {
     top:10%;
     font-size: 18px;
     font-weight: 700;
-    color:purple;
+    color:skyblue;
   }
   .pied-input-value{
     position: absolute;
@@ -117,8 +117,8 @@ const onInput = () => {
     width:100%;
     height:35px;
     transition: 0.5s;
-    color:purple;
-    font-size: 18px;
+    color:skyblue;
+    font-size: 16px;
     background:transparent;
     outline: none;
   }
