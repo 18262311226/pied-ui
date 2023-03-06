@@ -1,5 +1,13 @@
 <template>
-  <div class="card">
+  <div style="height:100%;">
+    <pied-container>
+      <pied-header></pied-header>
+      <pied-aside width="300px"></pied-aside>
+      <pied-main></pied-main>
+      <pied-footer></pied-footer>
+    </pied-container>
+  </div>
+  <!-- <div class="card">
     <pied-form :model="form" ref="formRef" :rules="rules">
       <pied-form-item prop="username">
         <pied-input v-model="form.username" label="username"></pied-input>
@@ -21,7 +29,7 @@
         </div>
       </pied-form-item>
     </pied-form>
-  </div>
+  </div> -->
 </template>
 
 <script setup>
@@ -41,13 +49,7 @@ const rules = reactive({
   ],
   password: [
     {required: true, message: '请输入密码', trigger: 'blur'}
-  ],
-  // like: [
-  //   {required: true, message: '请选择兴趣爱好', trigger: 'change'}
-  // ],
-  // country: [
-  //   {required: true, message: '请选择国家', trigger: 'change'}
-  // ]
+  ]
 })
 const checkList = ref([
   {
@@ -102,28 +104,25 @@ const reset = () => {
 </script>
 
 <style scoped>
-.margin{
-  margin-bottom:10px;
-}
-.pied-col{
-  margin-right:10px;
-}
-.iconbox{
-  width:500px;
-  
-}
-.icon{
-  width:50px;
-  height:50px;
+.pied-header{
   text-align: center;
-  line-height: 50px;
-
+  line-height: 60px;
+  background:#aaa;
 }
-.flex{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+.pied-footer{
+  text-align: center;
+  line-height: 60px;
+  background:#aaa;
+}
+.pied-main{
   align-items: center;
+  justify-content: center;
+  background:#333;
+}
+.pied-aside{
+  align-items: center;
+  justify-content: center;
+  background:#ccc;
 }
 .card{
   width:400px;
