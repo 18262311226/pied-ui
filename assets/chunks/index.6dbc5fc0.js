@@ -1,0 +1,1 @@
+import{_ as d,o as a,c as n,e as o,j as _,k as c}from"../app.7efc86b5.js";const i={name:"piedAside"},r=Object.assign(i,{props:{width:{type:String,default:"200px"}},setup(e){const t=e;return(s,p)=>(a(),n("div",{class:"pied-aside",style:c({width:t.width})},[o(" aside "),_(s.$slots,"default",{},void 0,!0)],4))}}),u=d(r,[["__scopeId","data-v-59dcd88d"]]);export{u as default};

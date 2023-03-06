@@ -1,0 +1,1 @@
+import{_ as n,y as s,o,c as a,j as _,z as c}from"../app.7efc86b5.js";const d={class:"pied-container"},r={name:"piedContainer"},l=Object.assign(r,{setup(i){const t=c();return s(()=>{let e=t.vnode.el;console.log(e.querySelector(".pied-header"))}),(e,p)=>(o(),a("div",d,[_(e.$slots,"default",{},void 0,!0)]))}}),f=n(l,[["__scopeId","data-v-29a6a012"]]);export{f as default};

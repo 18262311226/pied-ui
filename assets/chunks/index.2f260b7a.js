@@ -1,0 +1,1 @@
+import{_ as t,o as n,c as s,e as a,j as o}from"../app.7efc86b5.js";const _={name:"piedMain"},d={class:"pied-main"};function c(e,r,i,p,f,l){return n(),s("div",d,[a(" main "),o(e.$slots,"default",{},void 0,!0)])}const m=t(_,[["render",c],["__scopeId","data-v-686f2e07"]]);export{m as default};
