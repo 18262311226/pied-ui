@@ -1,13 +1,13 @@
 ## 弹出框
 
-### 基础用法
+## 基础用法
 
 <pied-button @click="handel1">open</pied-button>
 
 ::: details 代码示例
 ```js
 <template>
-    <pied-button @click="handel">open</pied-button>
+    <pied-button click="handel">open</pied-button>
 </template>
 
 <script>

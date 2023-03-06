@@ -33,7 +33,6 @@ const form = reactive({
   like: [],
   country: ''
 })
-
 const formRef = ref(null)
 
 const rules = reactive({
@@ -99,6 +98,7 @@ const handel = () => {
 const reset = () => {
   formRef.value.resetFields()
 }
+
 </script>
 
 <style scoped>

@@ -1,6 +1,6 @@
 ## 行和列
 
-### 基础用法
+## 基础用法
 
 <div class="box">
     <pied-row>

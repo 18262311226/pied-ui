@@ -1,6 +1,6 @@
 ## 按钮
 
-### 基础用法
+## 基础用法
 
 <div class="margin">
     <pied-button type="primary">查询</pied-button>
@@ -50,7 +50,7 @@
 ```
 :::
 
-### 禁用状态
+## 禁用状态
 
 <div class="margin">
     <pied-button type="primary" disabled>查询</pied-button>
@@ -70,7 +70,7 @@
 ```
 :::
 
-### 按钮大小
+## 按钮大小
 
 <div class="margin">
     <pied-button type="primary" size="mini">查询</pied-button>
@@ -90,7 +90,7 @@
 ```
 :::
 
-### 记载中
+## 记载中
 
 <div class="margin">
     <pied-button type="primary" :loading="true">查询</pied-button>

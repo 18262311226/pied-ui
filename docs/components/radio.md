@@ -1,6 +1,6 @@
 ## 单选框
 
-### 基础用法
+## 基础用法
 
 <div class="margin">
     <pied-radio v-model="radio" label="1">option1</pied-radio>
@@ -28,7 +28,7 @@ export default{
 ```
 :::
 
-### 禁用
+## 禁用
 
 <div class="margin">
     <pied-radio v-model="radio" label="1" disabled>option1</pied-radio>
@@ -56,7 +56,7 @@ export default{
 ```
 :::
 
-### 单选框组
+## 单选框组
 
 <div class="margin">
     <pied-radio-group v-model="radio1" :data="data" :keys="{label: 'label', value: 'value'}"></pied-radio-group>

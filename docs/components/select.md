@@ -1,6 +1,6 @@
 ## 选择器
 
-### 基础用法
+## 基础用法
 
 <pied-select v-model="inputValue" :data="data"></pied-select>
 
@@ -51,7 +51,7 @@ const data = ref([
 ```
 :::
 
-### 模糊查询
+## 模糊查询
 
 <pied-select v-model="inputValue1" filterable :data="data"></pied-select>
 
@@ -102,7 +102,7 @@ const data = ref([
 ```
 :::
 
-### 自定义内容
+## 自定义内容
 
 <pied-select v-model="inputValue2" filterable :data="data">
     <template v-slot="scope">

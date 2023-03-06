@@ -1,6 +1,6 @@
 ## 图标
 
-### 使用案列
+## 使用案列
 
 <pied-button icon="pied-icon-vertical-align-botto" circle></pied-button>
 <pied-button icon="pied-icon-home1" type="error" circle></pied-button>
@@ -16,7 +16,7 @@
 ```
 :::
 
-### 字体图标
+## 字体图标
 
 <div class="iconbox flex">
     <div v-for="(item, index) in iconlist" :key="index" :class="[`pied-icon-${item.font_class}`, 'icon']">

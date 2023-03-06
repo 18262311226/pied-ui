@@ -91,7 +91,7 @@ const onBlur = () => {
   emits('blur', inputValue.value)
   formItemData.getValue(inputValue.value)
   const rulesItem = formItemData.rules[formItemData.prop]
-  rulesItem.forEach(rule => {
+  rulesItem && rulesItem.forEach(rule => {
     if (rule.required) {
       inputValue.value ? formItemData.formItemChange(`${formItemData.prop}:${true}`) : formItemData.formItemChange(`${formItemData.prop}:${false}`)
     }else {

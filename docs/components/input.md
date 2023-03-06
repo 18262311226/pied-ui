@@ -1,6 +1,6 @@
 ## 输入框
 
-### 基础用法
+## 基础用法
 
 <pied-input v-model="inputValue"></pied-input>
 
@@ -17,7 +17,7 @@ let inputValue = ref('')
 ```
 :::
 
-### 输入类型
+## 输入类型
 
 <pied-input v-model="inputValue1" type="text"></pied-input>
 <pied-input v-model="inputValue2" type="password"></pied-input>
@@ -36,7 +36,7 @@ let inputValue = ref('')
 ```
 :::
 
-### 自定义名称
+## 自定义名称
 
 <pied-input v-model="inputValue3" type="text" label="用户名"></pied-input>
 <pied-input v-model="inputValue4" type="password" label="密码"></pied-input>
@@ -55,7 +55,7 @@ let inputValue = ref('')
 ```
 :::
 
-### 输入框居中
+## 输入框居中
 
 <pied-input v-model="inputValue5" type="text" label="用户名" center></pied-input>
 
@@ -72,7 +72,7 @@ let inputValue = ref('')
 ```
 :::
 
-### 禁用
+## 禁用
 
 <pied-input v-model="inputValue3" type="text" label="用户名" disabled></pied-input>
 <pied-input v-model="inputValue4" type="password" label="密码" disabled></pied-input>

@@ -1,6 +1,6 @@
 ## 多选框
 
-### 基础用法
+## 基础用法
 
 <div class="margin">
     <pied-checkbox v-model="checkbox">option1</pied-checkbox>
@@ -26,7 +26,7 @@ export default{
 ```
 :::
 
-### 禁用
+## 禁用
 
 <div class="margin">
     <pied-checkbox v-model="checkbox1">option1</pied-checkbox>
@@ -56,7 +56,7 @@ export default{
 ```
 :::
 
-### 选中边框
+## 选中边框
 
 <div class="margin">
     <pied-checkbox v-model="checkbox1" border>option1</pied-checkbox>
@@ -86,7 +86,7 @@ export default{
 ```
 :::
 
-### 多选框组
+## 多选框组
 
 <div class="margin">
     <pied-checkbox-group v-model="checkbox2" :data="datalist" :keys="{label: 'label', value: 'value'}">
