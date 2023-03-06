@@ -12,6 +12,7 @@ export default {
 
 <script setup>
 import { defineProps, onMounted, provide, reactive, ref, defineExpose } from 'vue'
+import emiter from './../../utils/emiter'
 const props = defineProps({
   model: {
     type: Object,
@@ -43,7 +44,11 @@ const validate = (callback) => {
   callback && callback(flag)
 }
 
-defineExpose({validate})
+const resetFields = () => {
+  emiter.emit('formResetFields')
+}
+
+defineExpose({validate, resetFields})
 
 provide('formData', {
   model: props.model,

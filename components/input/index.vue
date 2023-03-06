@@ -29,7 +29,8 @@ export default {
 </script>
 
 <script setup>
-import { defineProps, inject, ref, watch } from 'vue'
+import { defineProps, inject, ref, watch, onMounted } from 'vue'
+import emiter from '../../utils/emiter'
 const props = defineProps({
   label: {
     type: String,
@@ -103,6 +104,14 @@ const onInput = () => {
   emits('update:modelValue', inputValue.value)
   emits('input', inputValue.value)
 }
+
+onMounted(() => {
+  emiter.on('formResetFields', () => {
+    inputValue.value = ''
+    onBlur()
+    emits('update:modelValue', inputValue.value)
+  })
+})
 </script>
 
 <style lang="scss" scoped>

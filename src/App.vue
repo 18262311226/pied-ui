@@ -16,7 +16,7 @@
       </pied-form-item>
       <pied-form-item>
         <div style="text-align:center">
-          <pied-button type="error">重置</pied-button>
+          <pied-button type="error" @click="reset">重置</pied-button>
           <pied-button @click="handel">提交</pied-button>
         </div>
       </pied-form-item>
@@ -88,13 +88,16 @@ const countryList = ref([
 ])
 const handel = () => {
   formRef.value.validate((valid) => {
-    // console.log(valid)
     if(valid){
       alert('注册成功')
     }else {
       alert('数据填写不完整')
     }
   })
+}
+
+const reset = () => {
+  formRef.value.resetFields()
 }
 </script>
 
@@ -124,9 +127,8 @@ const handel = () => {
 }
 .card{
   width:400px;
-  /* box-shadow: 2px 2px 3px 4px #ddd; */
-  /* background:linear-gradient(90deg, #333, #ccc) transparent; */
-  background:rgba(1, 1, 1, .6);
+  background:rgb(8, 8, 21, 0.8);
+  box-shadow: 2px 2px 2px 2px skyblue;
   margin:100px auto;
   border-radius: 10px;
 }

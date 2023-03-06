@@ -15,6 +15,7 @@ export default {
 
 <script setup>
 import { defineProps, inject, onMounted, provide, reactive, ref } from 'vue'
+import emiter from '../../utils/emiter'
 
 const props = defineProps({
   prop: {
@@ -38,6 +39,12 @@ const props = defineProps({
 const formData = inject('formData')
 
 const validateObj = reactive({})
+
+onMounted(() => {
+  emiter.on('formResetFields', () => {
+    
+  })
+})
 
 provide('formItemData', {
   prop: props.prop,
