@@ -11,11 +11,23 @@ export default {
 </script>
 
 <script setup>
-import { defineProps } from 'vue'
+import { defineProps, provide } from 'vue'
 const props = defineProps({
   model: {
     type: Object,
     default: () => ({})
+  },
+  rules: {
+    type: Object,
+    default: () => ({})
+  }
+})
+
+provide('formData', {
+  model: props.model,
+  rules: props.rules,
+  formChange: (value) => {
+    console.log('formChange',value)
   }
 })
 </script>

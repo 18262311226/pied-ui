@@ -29,7 +29,7 @@ export default {
 </script>
 
 <script setup>
-import { defineProps, ref, watch } from 'vue'
+import { defineProps, inject, ref, watch } from 'vue'
 const props = defineProps({
   label: {
     type: String,
@@ -52,6 +52,8 @@ const props = defineProps({
     default: false
   }
 })
+const formItemData = inject('formItemData')
+console.log(formItemData)
 const emits = defineEmits(['update:modelValue', 'blur', 'input', 'focus'])
 let inputValue = ref('')
 inputValue.value = props.modelValue
@@ -73,6 +75,7 @@ const onFocus = () => {
   topLineClasses.value = ['pied-input-top-line-active']
   bottomLineClasses.value = ['pied-input-bottom-line-active']
   emits('focus', inputValue.value)
+  formItemData.formItemChange(inputValue.value)
 }
 const onBlur = () => {
   if(!inputValue.value){

@@ -14,7 +14,7 @@ export default {
 </script>
 
 <script setup>
-import { defineProps } from 'vue'
+import { defineProps, inject, onMounted, provide } from 'vue'
 
 const props = defineProps({
   prop: {
@@ -35,7 +35,21 @@ const props = defineProps({
   }
 })
 
+const formData = inject('formData')
 
+onMounted(() => {
+
+})
+
+
+provide('formItemData', {
+  prop: props.prop,
+  rules: formData.rules,
+  model: formData.model,
+  formItemChange: (value) => {
+    console.log('formItemChange', value)
+  }
+})
 </script>
 
 <style lang="scss" scoped>

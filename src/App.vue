@@ -1,10 +1,10 @@
 <template>
   <div class="card">
-    <pied-form :model="form">
+    <pied-form :model="form" :rules="rules">
       <pied-form-item prop="username">
         <pied-input v-model="form.username" label="username"></pied-input>
       </pied-form-item>
-      <pied-form-item prop="password" >
+      <pied-form-item prop="password">
         <pied-input v-model="form.password" label="password" type="password"></pied-input>
       </pied-form-item>
       <pied-form-item label="兴趣爱好" prop="like" label-width="100px" bottom="20px">
@@ -12,7 +12,7 @@
         </pied-checkbox-group>
       </pied-form-item>
       <pied-form-item label="国籍" prop="country" label-width="100px" bottom="20px">
-        <pied-select v-model="country" :data="countryList"></pied-select>
+        <pied-select v-model="form.country" :data="countryList"></pied-select>
       </pied-form-item>
       <pied-form-item>
         <div style="text-align:center">
@@ -31,6 +31,21 @@ const form = reactive({
   password: '',
   like: [],
   country: ''
+})
+
+const rules = reactive({
+  username: [
+    {required: true, message: '请输入用户名', trigger: 'blur'}
+  ],
+  password: [
+    {required: true, message: '请输入密码', trigger: 'blur'}
+  ],
+  like: [
+    {required: true, message: '请选择兴趣爱好', trigger: 'change'}
+  ],
+  country: [
+    {required: true, message: '请选择国家', trigger: 'change'}
+  ]
 })
 const checkList = ref([
   {
