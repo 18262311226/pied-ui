@@ -11,7 +11,7 @@ export default {
 </script>
 
 <script setup>
-import { defineProps, provide } from 'vue'
+import { defineProps, onMounted, provide, reactive, ref, defineExpose } from 'vue'
 const props = defineProps({
   model: {
     type: Object,
@@ -23,11 +23,35 @@ const props = defineProps({
   }
 })
 
+const validateArrary = reactive({})
+
+onMounted(() => {
+  for(let keys in props.model){
+    if (props.rules[keys] != undefined) {
+      validateArrary[keys] = 'false'
+    } 
+  }
+})
+
+const validate = (callback) => {
+  let flag = false
+  let values = []
+  for(const key in validateArrary){
+    values.push(validateArrary[key])
+  }
+  flag = values.every(val => val === 'true')
+  callback && callback(flag)
+}
+
+defineExpose({validate})
+
 provide('formData', {
   model: props.model,
   rules: props.rules,
   formChange: (value) => {
-    console.log('formChange',value)
+    for(let keys in value){
+      validateArrary[keys] = value[keys]
+    }
   }
 })
 </script>

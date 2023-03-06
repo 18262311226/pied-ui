@@ -52,14 +52,17 @@ const props = defineProps({
     default: false
   }
 })
+
 const formItemData = inject('formItemData')
-console.log(formItemData)
+const formData = inject('formData')
+
 const emits = defineEmits(['update:modelValue', 'blur', 'input', 'focus'])
 let inputValue = ref('')
 inputValue.value = props.modelValue
 const labelClasses = ref([])
 const topLineClasses = ref([])
 const bottomLineClasses = ref([])
+
 watch(() => props.modelValue, (newValue, oldValue) => {
   if(props.modelValue){
     inputValue.value = newValue
@@ -70,13 +73,14 @@ watch(() => props.modelValue, (newValue, oldValue) => {
 }, {
   immediate: true
 })
+
 const onFocus = () => {
   labelClasses.value = ['pied-input-label-active']
   topLineClasses.value = ['pied-input-top-line-active']
   bottomLineClasses.value = ['pied-input-bottom-line-active']
   emits('focus', inputValue.value)
-  formItemData.formItemChange(inputValue.value)
 }
+
 const onBlur = () => {
   if(!inputValue.value){
     labelClasses.value = []
@@ -84,7 +88,17 @@ const onBlur = () => {
     bottomLineClasses.value = []
   }
   emits('blur', inputValue.value)
+  formItemData.getValue(inputValue.value)
+  const rulesItem = formItemData.rules[formItemData.prop]
+  rulesItem.forEach(rule => {
+    if (rule.required) {
+      inputValue.value ? formItemData.formItemChange(`${formItemData.prop}:${true}`) : formItemData.formItemChange(`${formItemData.prop}:${false}`)
+    }else {
+      formItemData.formItemChange(`${formItemData.prop}:${true}`)
+    }
+  })
 }
+
 const onInput = () => {
   emits('update:modelValue', inputValue.value)
   emits('input', inputValue.value)

@@ -14,7 +14,7 @@ export default {
 </script>
 
 <script setup>
-import { defineProps, inject, onMounted, provide } from 'vue'
+import { defineProps, inject, onMounted, provide, reactive, ref } from 'vue'
 
 const props = defineProps({
   prop: {
@@ -37,17 +37,31 @@ const props = defineProps({
 
 const formData = inject('formData')
 
-onMounted(() => {
-
-})
-
+const validateObj = reactive({})
 
 provide('formItemData', {
   prop: props.prop,
   rules: formData.rules,
   model: formData.model,
+  getValue: (value) => {
+    
+  },
   formItemChange: (value) => {
-    console.log('formItemChange', value)
+    let has = false
+    const [key, val] = value.split(':')
+    for(let keys in validateObj){
+      if(keys === key){
+        validateObj[keys] = val
+        has = true
+      }
+    }
+
+    if(!has){
+      validateObj[key] = val
+    }
+
+    formData.formChange(validateObj)
+    
   }
 })
 </script>

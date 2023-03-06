@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <pied-form :model="form" :rules="rules">
+    <pied-form :model="form" ref="formRef" :rules="rules">
       <pied-form-item prop="username">
         <pied-input v-model="form.username" label="username"></pied-input>
       </pied-form-item>
@@ -17,7 +17,7 @@
       <pied-form-item>
         <div style="text-align:center">
           <pied-button type="error">重置</pied-button>
-          <pied-button>提交</pied-button>
+          <pied-button @click="handel">提交</pied-button>
         </div>
       </pied-form-item>
     </pied-form>
@@ -25,13 +25,16 @@
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue'
+import { ref, reactive, onMounted } from 'vue'
+
 const form = reactive({
   username: '',
   password: '',
   like: [],
   country: ''
 })
+
+const formRef = ref(null)
 
 const rules = reactive({
   username: [
@@ -40,12 +43,12 @@ const rules = reactive({
   password: [
     {required: true, message: '请输入密码', trigger: 'blur'}
   ],
-  like: [
-    {required: true, message: '请选择兴趣爱好', trigger: 'change'}
-  ],
-  country: [
-    {required: true, message: '请选择国家', trigger: 'change'}
-  ]
+  // like: [
+  //   {required: true, message: '请选择兴趣爱好', trigger: 'change'}
+  // ],
+  // country: [
+  //   {required: true, message: '请选择国家', trigger: 'change'}
+  // ]
 })
 const checkList = ref([
   {
@@ -83,6 +86,16 @@ const countryList = ref([
     value: 3
   }
 ])
+const handel = () => {
+  formRef.value.validate((valid) => {
+    // console.log(valid)
+    if(valid){
+      alert('注册成功')
+    }else {
+      alert('数据填写不完整')
+    }
+  })
+}
 </script>
 
 <style scoped>
