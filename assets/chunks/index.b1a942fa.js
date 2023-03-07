@@ -1,1 +1,0 @@
-import{_ as o,o as t,c as s,e as n,j as _}from"../app.7efc86b5.js";const a={name:"piedFooter"},d={class:"pied-footer"};function r(e,c,p,f,i,l){return t(),s("div",d,[n(" footer "),_(e.$slots,"default",{},void 0,!0)])}const x=o(a,[["render",r],["__scopeId","data-v-9f9b4991"]]);export{x as default};

@@ -1,0 +1,1 @@
+import{_ as e,o as n,c as o}from"../app.a85c5ba3.js";const t={name:"piedPagination"},a={class:"pied-pagination"};function s(c,i,r,p,_,d){return n(),o("div",a)}const l=e(t,[["render",s]]);export{l as default};
