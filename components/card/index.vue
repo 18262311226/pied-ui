@@ -1,6 +1,6 @@
 <template>
   <div class="pied-card" :class="classes" :style="{background: props.themeColor}">
-    <div class="card-title">
+    <div class="card-title" v-if="slots['header']">
       <slot name="header"></slot>
     </div>
     <div class="card-body">
@@ -16,7 +16,7 @@ export default {
 </script>
 
 <script setup>
-import { computed, defineProps } from 'vue'
+import { computed, defineProps, useSlots } from 'vue'
 const props = defineProps({
   shadow: {
     type: String,
@@ -33,6 +33,8 @@ let classes = computed(() => {
     `pied-card-${props.shadow}`
   ]
 })
+
+const slots = useSlots()
 </script>
 
 <style lang="scss" scoped>

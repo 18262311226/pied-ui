@@ -311,9 +311,15 @@ const reset = () => {
 :::
 
 
-
-
-
+| 参数          |      说明  |  可选值 | 默认值 | 类型 | 
+| -------------| :-------------: | ----------: | -------------: |  ----------: | 
+| model      |  绑定数据         | Object    | -----          |  Object | 
+| rules     |   校验规则           |   Object |  ------        |  Object |
+| prop        |   校验字段         |    绑定数据中的字段名     | -----         | String  |
+| labelWidth          |   label宽度 |    px | 0px          |  String               |
+| label         |   提示文字    |    -----      | -----        |  String |
+| validate         |   校验表单    |    -----       | -----        |  Function |
+| resetFields         |   重置表单    |    -----       | -----        |  Function |
 
 <script>
 export default {
