@@ -1,13 +1,16 @@
 <template>
-  <div style="height:100%;">
-    <pied-container flex="row">
-      <pied-aside width="300px"></pied-aside>
-      <pied-container flex="column">
-        <pied-header></pied-header>
-        <pied-main></pied-main>
-        <pied-footer></pied-footer>
-      </pied-container>
-    </pied-container>
+  <div class="bg">
+    <pied-card themeColor="rgba(255,255,255,0.2)">
+      <template #header>
+        <div class="header">
+          <span class="pied-icon-file-image1"></span>
+          <div class="title">我的相册</div>
+        </div>
+      </template>
+      <div class="card">
+        <pied-select :data="countryList" v-model="form.country"></pied-select>
+      </div>
+    </pied-card>
   </div>
   <!-- <div class="card">
     <pied-form :model="form" ref="formRef" :rules="rules">
@@ -105,32 +108,28 @@ const reset = () => {
 
 </script>
 
-<style scoped>
-.pied-header{
-  text-align: center;
-  line-height: 60px;
-  background:#aaa;
-}
-.pied-footer{
-  text-align: center;
-  line-height: 60px;
-  background:#aaa;
-}
-.pied-main{
-  align-items: center;
-  justify-content: center;
-  background:#333;
-}
-.pied-aside{
-  align-items: center;
-  justify-content: center;
-  background:#ccc;
+<style lang="scss" scoped>
+.bg{
+  width:100%;
+  height:100%;
+  padding:20px;
 }
 .card{
   width:400px;
   background:rgb(8, 8, 21, 0.8);
   box-shadow: 2px 2px 2px 2px skyblue;
-  margin:100px auto;
   border-radius: 10px;
+}
+.pied-card{
+  margin-bottom:20px;
+}
+.header{
+  height:40px;
+  display: flex;
+  align-items: center;
+  span{
+    font-size: 30px; 
+    margin-right:10px;
+  }
 }
 </style>

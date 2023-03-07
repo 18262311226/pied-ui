@@ -37,7 +37,10 @@ module.exports = {
             },
             {
               text: 'Data',
-              items: []
+              items: [
+                { text: 'Table 表格', link: '../components/table.md' },
+                { text: 'Pagination 分页', link: '../components/pagination.md'}
+              ]
             },
             {
               text: 'Notice',
@@ -48,7 +51,9 @@ module.exports = {
             },
             {
               text: 'Other',
-              items: []
+              items: [
+                { text: 'Card 卡片', link: '../components/card.md' } 
+              ]
             },
             {
               text: 'Work',
