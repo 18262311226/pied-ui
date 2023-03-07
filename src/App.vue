@@ -1,10 +1,12 @@
 <template>
   <div style="height:100%;">
-    <pied-container>
-      <pied-header></pied-header>
+    <pied-container flex="row">
       <pied-aside width="300px"></pied-aside>
-      <pied-main></pied-main>
-      <pied-footer></pied-footer>
+      <pied-container flex="column">
+        <pied-header></pied-header>
+        <pied-main></pied-main>
+        <pied-footer></pied-footer>
+      </pied-container>
     </pied-container>
   </div>
   <!-- <div class="card">

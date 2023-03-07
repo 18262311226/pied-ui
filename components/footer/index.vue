@@ -1,6 +1,5 @@
 <template>
   <div class="pied-footer">
-    footer
     <slot></slot>
   </div>
 </template>

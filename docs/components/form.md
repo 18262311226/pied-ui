@@ -411,7 +411,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .card{
     width:400px;
     background:rgb(8, 8, 21, 0.8);

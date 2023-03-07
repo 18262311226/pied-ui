@@ -1,6 +1,5 @@
 <template>
   <div class="pied-aside" :style="{width: props.width}">
-    aside
     <slot></slot>
   </div>
 </template>

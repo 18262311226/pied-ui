@@ -1,6 +1,5 @@
 <template>
   <div class="pied-main">
-    main
     <slot></slot>
   </div>
 </template>

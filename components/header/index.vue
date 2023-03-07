@@ -1,6 +1,5 @@
 <template>
   <div class="pied-header">
-    header
     <slot></slot>
   </div>
 </template>

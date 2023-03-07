@@ -1,5 +1,5 @@
 <template>
-  <div class="pied-container">
+  <div class="pied-container" :style="{flexDirection: props.flex}">
     <slot></slot>
   </div>
 </template>
@@ -11,12 +11,12 @@ export default {
 </script>
 
 <script setup>
-import { getCurrentInstance, onMounted } from 'vue'
-const instance = getCurrentInstance()
-
-onMounted(() => {
-  let el = instance.vnode.el
-  console.log(el.querySelector('.pied-header'))
+import { defineProps } from 'vue'
+const props = defineProps({
+  flex: {
+    type: String,
+    default: 'column'
+  }
 })
 
 </script>
