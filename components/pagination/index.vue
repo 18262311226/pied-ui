@@ -1,18 +1,26 @@
 <template>
   <div class="pied-pagination">
     <ul class="page-box">
-      <li class="pagebtn pageLeft" :class="[ props.background ? 'background' : '']" >
+      <li v-if="layout.includes('prev')" class="pagebtn pageLeft" :class="[ props.background ? 'background' : '']" >
         <span class="pied-icon-left" @click="pageChange('prev')"></span>
       </li>
-      <div 
-        class="pagebtn pager" 
-        :class="[ pageNum === item ? 'active' : '' , props.background ? 'background' : '']" 
-        v-for="(item) in pages" 
-        :key="item" 
-        @click="pageChange(item)"
-      >{{item}}</div>
-      <li class="pagebtn pageRight" :class="[ props.background ? 'background' : '']" >
+
+      <template v-if="layout.includes('pager')">
+        <div 
+          class="pagebtn pager" 
+          :class="[ pageNum === item ? 'active' : '' , props.background ? 'background' : '']" 
+          v-for="(item) in pages" 
+          :key="item" 
+          @click="pageChange(item)"
+        >{{item}}</div>
+      </template>
+
+      <li v-if="layout.includes('next')" class="pagebtn pageRight" :class="[ props.background ? 'background' : '']" >
         <span class="pied-icon-right"  @click="pageChange('next')"></span>
+      </li>
+
+      <li class="total" v-if="layout.includes('total')">
+        共 {{props.total}} 条
       </li>
     </ul>
   </div>
@@ -28,6 +36,10 @@ export default {
 import { computed, defineProps, watch, defineEmits, ref } from 'vue'
 const emits = defineEmits(['currentPageChange'])
 const props = defineProps({
+  layout:{
+    type: String,
+    default: 'pager'
+  },
   currentPageNum: {
     type: Number,
     default: 1
@@ -58,9 +70,15 @@ watch(() => props.currentPageNum, (newValue, oldValue) => {
 let pages = computed(() => {
   let { pageSize, total } = props
  if ( pageSize >= total ) return 1
- let pageNo = total / pageSize
+ let pageNo = parseInt(total / pageSize)
  total % pageSize ? pageNo += 1 : pageNo
- if (pageNo < 10) return pageNo
+ if (pageNo < 10) {
+    let arr = []
+    for(let i = 1;i <= pageNo;i++){
+      arr.push(i)
+    }
+    return arr
+ }  
  if (pageNum.value <= 4) {
     return [1, 2, 3, 4, 5, '>>', pageNo]
  }else if (pageNum.value > pageNo - 4) {
@@ -74,14 +92,18 @@ const pageChange = (pageNo) => {
   if(pageNo === '<<') {
     if((pageNum.value <= 5 && pageNum.value > pages.value[pages.value.length - 1] - 5)){
       pageNum.value -= 1
+      emits('currentPageChange', pageNum.value)
     }else {
       pageNum.value -= 4
+      emits('currentPageChange', pageNum.value)
     }
   }else if (pageNo === '>>') {
     if((pageNum.value <= pageNum.value > pages.value[pages.value.length - 1] - 5)){
       pageNum.value += 1
+      emits('currentPageChange', pageNum.value)
     }else {
       pageNum.value += 4
+      emits('currentPageChange', pageNum.value)
     }
   }else if (pageNo === 'prev' && pageNum.value > 1) {
     pageNum.value -= 1
@@ -98,36 +120,40 @@ const pageChange = (pageNo) => {
 
 <style lang="scss" scoped>
 .pied-pagination{
-  display: inline-block;
+  display: flex;
   .page-box{
     display: flex;
     align-items: center;
     justify-content: space-between;
     min-width:100px;
     .pagebtn{
+      list-style: none;
       width:30px;
       height:30px;
       margin-right:10px;
       border-radius: 2px;
-      // background: #f4f4f5;
       font-family: '宋体';
       display: flex;
       justify-content: center;
       align-items: center;
-      // color:#333;
       &:hover{
         color: skyblue;
       }
     }
+    .total{
+      list-style: none;
+    }
     .pageLeft{
       margin-right:10px;
       cursor: pointer;
+      color:#aaa;
       span{
         font-size: 16px;
       }
     }
     .pageRight{
       cursor: pointer;
+      color:#aaa;
       span{
         font-size: 16px;
       }

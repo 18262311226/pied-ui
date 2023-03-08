@@ -2,7 +2,8 @@
   <div class="bg">
     <pied-pagination
       background
-      layout="prev, pager, next"
+      :pageSize="1"
+      layout="prev, pager, next, total"
       :total="data.total">
     </pied-pagination>
   </div>
@@ -34,7 +35,7 @@
 <script setup>
 import { ref, reactive, onMounted } from 'vue'
 const data = reactive({
-  total:200,
+  total:20,
   list: [
     {
       id: 0,
