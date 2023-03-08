@@ -84,7 +84,15 @@
 ```
 :::
 
-<style>
+| 参数          |      说明  |  可选值 | 默认值 | 类型 | 
+| ---------| :-----------------: | ----------: | -------------: |  ----------: | 
+| layout      |     控件       |  prev,next,pager,total       |  pager          |  String | 
+| total     |   总条数           |    0 - n    |  0       |  Number |
+| pageSize      |  展示条数          |  0 - n       |  10          |  Number | 
+| currentPageNum     |   页码值           |   1 - n |  1        |  Number |
+| currentPageChange      |  改变当前页          |  ------       |  ------          |  Function | 
+
+<style scoped>
     ul{
         margin:0;
     }
