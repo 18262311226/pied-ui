@@ -33,7 +33,7 @@ module.exports = {
         main: 'calc(100vh - 72px)'
       },
       colors: {
-        main: '#f44c58',
+        // main: '#f44c58',
         'success-100': '#F2F9EC',
         'success-200': '#E4F2DB',
         'success-300': '#7EC050',
