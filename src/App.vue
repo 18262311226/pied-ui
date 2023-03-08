@@ -1,16 +1,10 @@
 <template>
   <div class="bg">
-    <pied-card themeColor="rgba(255,255,255,0.2)">
-      <template #header>
-        <div class="header">
-          <span class="pied-icon-file-image1"></span>
-          <div class="title">我的相册</div>
-        </div>
-      </template>
-      <div class="card">
-        <pied-select :data="countryList" v-model="form.country"></pied-select>
-      </div>
-    </pied-card>
+    <pied-pagination
+      background
+      layout="prev, pager, next"
+      :total="data.total">
+    </pied-pagination>
   </div>
   <!-- <div class="card">
     <pied-form :model="form" ref="formRef" :rules="rules">
@@ -39,6 +33,41 @@
 
 <script setup>
 import { ref, reactive, onMounted } from 'vue'
+const data = reactive({
+  total:200,
+  list: [
+    {
+      id: 0,
+      name: 'liuyongqi',
+      age: 18
+    },
+    {
+      id: 0,
+      name: 'liuyongqi',
+      age: 18
+    },
+    {
+      id: 0,
+      name: 'liuyongqi',
+      age: 18
+    },{
+      id: 0,
+      name: 'liuyongqi',
+      age: 18
+    },
+    {
+      id: 0,
+      name: 'liuyongqi',
+      age: 18
+    }
+  ]
+})
+
+const page = reactive({
+  pageNum: 1,
+  pageSize: 10
+})
+
 
 const form = reactive({
   username: '',
