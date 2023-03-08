@@ -1,7 +1,7 @@
 {
   "name": "pied-design-ui",
   "private": false,
-  "version": "0.0.5",
+  "version": "0.0.6",
   "main": "./dist/pied-design-ui.umd.js",
   "module": "./dist/pied-design-ui.es.js",
   "exports": {
