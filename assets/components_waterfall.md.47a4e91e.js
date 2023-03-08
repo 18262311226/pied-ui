@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as a}from"./app.94bd4bb9.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"components/waterfall.md"}'),o={name:"components/waterfall.md"};function r(n,s,c,p,l,_){return a(),t("div")}const d=e(o,[["render",r]]);export{m as __pageData,d as default};
