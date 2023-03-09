@@ -19,8 +19,8 @@
             <div class="text-lg font-bold text-zinc-900 dark:text-zinc-200 mb-2">{{title}}</div>
             <div class="text-base text-zinc-900 dark:text-zinc-300 mb-2">{{content}}</div>
             <div class="flex justify-end">
-                <pied-button type="info" class="mr-2" @click="onCancelClick">{{cancelText}}</pied-button>
-                <pied-button type="primary" @click="onConfirmClick">{{confirmText}}</pied-button>
+                <pied-button type="info" size="mini" v-if="cancelText" class="mr-2" @click="onCancelClick">{{cancelText}}</pied-button>
+                <pied-button type="primary" size="mini" v-if="confirmText" @click="onConfirmClick">{{confirmText}}</pied-button>
             </div>
         </div>
     </transition>
@@ -41,11 +41,11 @@ const props = defineProps(
     },
     cancelText: {
         type: String,
-        default: '取消'
+        default: ''
     },
     confirmText: {
         type: String,
-        default: '确定'
+        default: ''
     },
     cancelHandler: {
         type: Function

@@ -1,11 +1,6 @@
 <template>
   <div class="bg">
-    <pied-pagination
-      background
-      :pageSize="1"
-      layout="prev, pager, next, total"
-      :total="data.total">
-    </pied-pagination>
+    <pied-button @click="handel">open</pied-button>
   </div>
   <!-- <div class="card">
     <pied-form :model="form" ref="formRef" :rules="rules">
@@ -34,40 +29,7 @@
 
 <script setup>
 import { ref, reactive, onMounted } from 'vue'
-const data = reactive({
-  total:20,
-  list: [
-    {
-      id: 0,
-      name: 'liuyongqi',
-      age: 18
-    },
-    {
-      id: 0,
-      name: 'liuyongqi',
-      age: 18
-    },
-    {
-      id: 0,
-      name: 'liuyongqi',
-      age: 18
-    },{
-      id: 0,
-      name: 'liuyongqi',
-      age: 18
-    },
-    {
-      id: 0,
-      name: 'liuyongqi',
-      age: 18
-    }
-  ]
-})
-
-const page = reactive({
-  pageNum: 1,
-  pageSize: 10
-})
+import { confirm } from '../components/index'
 
 
 const form = reactive({
@@ -123,13 +85,7 @@ const countryList = ref([
   }
 ])
 const handel = () => {
-  formRef.value.validate((valid) => {
-    if(valid){
-      alert('注册成功')
-    }else {
-      alert('数据填写不完整')
-    }
-  })
+  confirm('标题', '内容')
 }
 
 const reset = () => {

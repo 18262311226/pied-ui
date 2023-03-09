@@ -126,6 +126,7 @@ const pageChange = (pageNo) => {
     align-items: center;
     justify-content: space-between;
     min-width:100px;
+    min-height:40px;
     .pagebtn{
       list-style: none;
       width:30px;
@@ -136,6 +137,7 @@ const pageChange = (pageNo) => {
       display: flex;
       justify-content: center;
       align-items: center;
+      transition: 0.3s;
       &:hover{
         color: skyblue;
       }
@@ -162,10 +164,14 @@ const pageChange = (pageNo) => {
       cursor: pointer;
       font-size: 16px;
     }
+    .active{ 
+      color:purple;
+      font-size: 20px;
+      width:35px;
+      height:35px;
+      box-shadow: 0 0 8px 1px #ddd;
+    }
   }
-}
-.active{ 
-  color:skyblue;
 }
 .background{
   background:#f4f4f5;
