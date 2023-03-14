@@ -1,6 +1,10 @@
 <template>
   <div class="bg">
-    <pied-button @click="handel">open</pied-button>
+    <pied-table 
+      data="" 
+      column=""
+    >
+    </pied-table>
   </div>
   <!-- <div class="card">
     <pied-form :model="form" ref="formRef" :rules="rules">
