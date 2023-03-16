@@ -6,7 +6,7 @@
       border
     >
       <template #body="{column, record}">
-        <template v-if="column.key === 'gender'">
+        <template v-if="column.key === 'gender'"> 
           <span v-if="record.gender == 0">男</span>
           <span v-if="record.gender == 1">女</span>
         </template>
@@ -17,7 +17,7 @@
       </template>
     </pied-table>
     <div style="float:right;margin-top:20px;">
-      <pied-pagination :total="200" layout="pager, prev,next"></pied-pagination>
+      <pied-pagination :total="200" layout="pager, prev, next, total"></pied-pagination>
     </div>
   </div>
   <!-- <div class="card">

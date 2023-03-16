@@ -53,6 +53,8 @@ const slots = useSlots()
   border:1px solid #f0f0f0;
   td{
     border:1px solid #f0f0f0;
+    padding: 0 4px;
+    box-sizing: border-box;
   }
 }
 .pied-table{
@@ -65,7 +67,7 @@ const slots = useSlots()
     font-weight: 700;
   }
   .pied-table-tr-body{
-    height:50px;
+    height:60px;
     border-bottom:1px solid #f0f0f0;
     font-size: 12px;
     &:hover{
