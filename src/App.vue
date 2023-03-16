@@ -1,10 +1,24 @@
 <template>
   <div class="bg">
     <pied-table 
-      data="" 
-      column=""
+      :data="data" 
+      :columns="columns"
+      border
     >
+      <template #body="{column, record}">
+        <template v-if="column.key === 'gender'">
+          <span v-if="record.gender == 0">男</span>
+          <span v-if="record.gender == 1">女</span>
+        </template>
+        <template v-else-if="column.key === 'action'">
+          <pied-button size="mini" @click="handel(record)">编辑</pied-button>
+          <pied-button size="mini" type="error">删除</pied-button>
+        </template>
+      </template>
     </pied-table>
+    <div style="float:right;margin-top:20px;">
+      <pied-pagination :total="200" layout="pager, prev,next"></pied-pagination>
+    </div>
   </div>
   <!-- <div class="card">
     <pied-form :model="form" ref="formRef" :rules="rules">
@@ -34,73 +48,147 @@
 <script setup>
 import { ref, reactive, onMounted } from 'vue'
 import { confirm } from '../components/index'
-
-
-const form = reactive({
-  username: '',
-  password: '',
-  like: [],
-  country: ''
-})
-const formRef = ref(null)
-
-const rules = reactive({
-  username: [
-    {required: true, message: '请输入用户名', trigger: 'blur'}
-  ],
-  password: [
-    {required: true, message: '请输入密码', trigger: 'blur'}
-  ]
-})
-const checkList = ref([
+const data = ref([
   {
-    label: '唱歌',
-    value: 0
+    id: 0,
+    userName: 'liuyongqi' ,
+    age: 18,
+    gender: 0,
+    address: '西湖区湖底公园1号'
   },
   {
-    label: '跳舞',
-    value: 1
+    id: 1,
+    userName: 'yangwenwu' ,
+    age: 17,
+    gender: 0,
+    address: '西湖区湖底公园2号'
   },
   {
-    label: 'rap',
-    value: 2
+    id: 2,
+    userName: 'fangshiyu' ,
+    age: 20,
+    gender: 0,
+    address: '西湖区湖底公园3号'
   },
   {
-    label: '篮球',
-    value: 3
+    id: 3,
+    userName: 'zhuwei' ,
+    age: 21,
+    gender: 0,
+    address: '西湖区湖底公园4号'
+  },
+  {
+    id: 4,
+    userName: 'xiaodi' ,
+    age: 18,
+    gender: 1,
+    address: '西湖区湖底公园1号'
   }
 ])
-const countryList = ref([
+
+const columns = ref([
   {
-    label: '中国',
-    value: 0
+    title: '用户',
+    key: 'userName',
+    dataIndex: 'userName',
+    center: 'center',
+    width: '150px'
   },
   {
-    label: '日本',
-    value: 1
+    title: '年龄',
+    key: 'age',
+    dataIndex: 'age',
+    center: 'center',
+    width: '150px'
   },
   {
-    label: '美国',
-    value: 2
+    title: '性别',
+    key: 'gender',
+    dataIndex: 'gender',
+    center: 'center',
+    width: '150px',
+    format: true
   },
   {
-    label: '俄罗斯',
-    value: 3
+    title: '地址',
+    key: 'address',
+    dataIndex: 'address',
+    center: 'center',
+    width: '150px'
+  },
+  {
+    title: '操作',
+    key: 'action',
+    center: 'center',
+    format: true
   }
 ])
-const handel = () => {
-  confirm('标题', '内容')
+
+// const form = reactive({
+//   username: '',
+//   password: '',
+//   like: [],
+//   country: ''
+// })
+// const formRef = ref(null)
+
+// const rules = reactive({
+//   username: [
+//     {required: true, message: '请输入用户名', trigger: 'blur'}
+//   ],
+//   password: [
+//     {required: true, message: '请输入密码', trigger: 'blur'}
+//   ]
+// })
+// const checkList = ref([
+//   {
+//     label: '唱歌',
+//     value: 0
+//   },
+//   {
+//     label: '跳舞',
+//     value: 1
+//   },
+//   {
+//     label: 'rap',
+//     value: 2
+//   },
+//   {
+//     label: '篮球',
+//     value: 3
+//   }
+// ])
+// const countryList = ref([
+//   {
+//     label: '中国',
+//     value: 0
+//   },
+//   {
+//     label: '日本',
+//     value: 1
+//   },
+//   {
+//     label: '美国',
+//     value: 2
+//   },
+//   {
+//     label: '俄罗斯',
+//     value: 3
+//   }
+// ])
+const handel = (record) => {
+  console.log(record)
 }
 
-const reset = () => {
-  formRef.value.resetFields()
-}
+// const reset = () => {
+//   formRef.value.resetFields()
+// }
 
 </script>
 
 <style lang="scss" scoped>
 .bg{
-  width:100%;
+  width:1000px;
   height:100%;
   padding:20px;
 }
