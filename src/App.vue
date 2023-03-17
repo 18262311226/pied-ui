@@ -1,9 +1,9 @@
 <template>
   <div class="bg">
     <pied-table 
-      :data="data" 
+      :data="data"
       :columns="columns"
-      border
+      
     >
       <template #body="{column, record}">
         <template v-if="column.key === 'gender'"> 

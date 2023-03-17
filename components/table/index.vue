@@ -1,5 +1,5 @@
 <template>
-  <table class="pied-table" :class="[props.border ? 'pied-table-border' : '']" cellspacing="0" cellpadding="0">
+  <table class="pied-table" border="0" :class="[props.border ? 'pied-table-border' : '']" cellspacing="0" cellpadding="0">
     <thead>
       <tr class="pied-table-tr-header">
         <td v-for="column in props.columns" :align="column.center" :style="{width: column.width}" :key="column.key">
@@ -50,15 +50,16 @@ const slots = useSlots()
 
 <style lang="scss" scoped>
 .pied-table-border{
-  border:1px solid #f0f0f0;
+  border:1px solid #f0f0f0 !important;
   td{
-    border:1px solid #f0f0f0;
+    border:1px solid #f0f0f0 !important;
     padding: 0 4px;
     box-sizing: border-box;
   }
 }
 .pied-table{
   width:100%;
+  border: 0 !important;
   .pied-table-tr-header{
     height:60px;
     background:#fafafa;
