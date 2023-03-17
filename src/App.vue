@@ -1,25 +1,6 @@
 <template>
   <div class="bg">
-    <pied-table 
-      :data="data"
-      :columns="columns"
-      border
-      :rowSelectChange="rowSelectChange"
-    >
-      <template #body="{column, record}">
-        <template v-if="column.key === 'gender'"> 
-          <span v-if="record.gender == 0">男</span>
-          <span v-if="record.gender == 1">女</span>
-        </template>
-        <template v-else-if="column.key === 'action'">
-          <pied-button size="mini" @click="handel(record)">编辑</pied-button>
-          <pied-button size="mini" type="error">删除</pied-button>
-        </template>
-      </template>
-    </pied-table>
-    <div style="float:right;margin-top:20px;">
-      <pied-pagination :total="200" layout="pager, prev, next, total"></pied-pagination>
-    </div>
+    
   </div>
   <!-- <div class="card">
     <pied-form :model="form" ref="formRef" :rules="rules">
@@ -49,94 +30,7 @@
 <script setup>
 import { ref, reactive, onMounted } from 'vue'
 import { confirm } from '../components/index'
-const data = ref([
-  {
-    id: 0,
-    userName: 'liuyongqi' ,
-    age: 18,
-    gender: 0,
-    address: '西湖区湖底公园1号'
-  },
-  {
-    id: 1,
-    userName: 'yangwenwu' ,
-    age: 17,
-    gender: 0,
-    address: '西湖区湖底公园2号'
-  },
-  {
-    id: 2,
-    userName: 'fangshiyu' ,
-    age: 20,
-    gender: 0,
-    address: '西湖区湖底公园3号'
-  },
-  {
-    id: 3,
-    userName: 'zhuwei' ,
-    age: 21,
-    gender: 0,
-    address: '西湖区湖底公园4号'
-  },
-  {
-    id: 4,
-    userName: 'xiaodi' ,
-    age: 18,
-    gender: 1,
-    address: '西湖区湖底公园1号'
-  }
-])
 
-const columns = ref([
-  {
-    title: '',
-    key: '',
-    width: '50px',
-    select: true,
-    center: 'center'
-  },
-  {
-    title: '用户',
-    key: 'userName',
-    dataIndex: 'userName',
-    center: 'center',
-    width: '100px'
-  },
-  {
-    title: '年龄',
-    key: 'age',
-    dataIndex: 'age',
-    center: 'center',
-    width: '100px',
-    sort: true
-  },
-  {
-    title: '性别',
-    key: 'gender',
-    dataIndex: 'gender',
-    center: 'center',
-    width: '100px',
-    format: true
-  },
-  {
-    title: '地址',
-    key: 'address',
-    dataIndex: 'address',
-    center: 'center',
-    width: '200px'
-  },
-  {
-    title: '操作',
-    key: 'action',
-    center: 'center',
-    format: true
-  }
-])
-
-
-const rowSelectChange = (arr) => {
-  console.log(arr)
-}
 // const form = reactive({
 //   username: '',
 //   password: '',
