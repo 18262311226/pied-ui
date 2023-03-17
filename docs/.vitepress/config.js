@@ -52,7 +52,9 @@ module.exports = {
             {
               text: 'Other',
               items: [
-                { text: 'Card 卡片', link: '../components/card.md' } 
+                { text: 'Card 卡片', link: '../components/card.md' },
+                { text: 'Dialog 对话框', link: '../components/dialog.md' },
+                { text: 'Step 步骤条', link: '../components/step.md' }
               ]
             },
             {
