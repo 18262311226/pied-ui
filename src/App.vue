@@ -100,21 +100,22 @@ const columns = ref([
     key: 'userName',
     dataIndex: 'userName',
     center: 'center',
-    width: '80px'
+    width: '100px'
   },
   {
     title: '年龄',
     key: 'age',
     dataIndex: 'age',
     center: 'center',
-    width: '50px'
+    width: '100px',
+    sort: true
   },
   {
     title: '性别',
     key: 'gender',
     dataIndex: 'gender',
     center: 'center',
-    width: '50px',
+    width: '100px',
     format: true
   },
   {
@@ -122,7 +123,7 @@ const columns = ref([
     key: 'address',
     dataIndex: 'address',
     center: 'center',
-    width: '150px'
+    width: '200px'
   },
   {
     title: '操作',

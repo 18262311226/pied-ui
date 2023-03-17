@@ -4,7 +4,12 @@
       <tr class="pied-table-tr-header">
         <template v-for="column in props.columns" :key="column.key">
           <td v-if="!column.select" :align="column.center" :style="{width: column.width}">
-            {{column.title}}
+            {{column.title}} 
+            <span v-show="column.sort">
+              <span class="pied-icon-rise" v-if="column.sortType === 'up'" @click="sortChange('up',column)"></span>
+              <span class="pied-icon-fall" v-else-if="column.sortType === 'down'" @click="sortChange('down', column)"></span>
+              <span class="pied-icon-reload" v-else-if="column.sortType !== 'up' && column.sortType !== 'down'" @click="sortChange('normal', column)"></span>
+            </span>
           </td>
           <td :align="column.center" :style="{width: column.width}" v-else>
             <pied-checkbox v-model="chooseAll" @change="selectAll"></pied-checkbox>
@@ -57,6 +62,8 @@ const props = defineProps({
   }
 })
 const data = ref([])
+const sortType = ref('normal')
+const sortData = ref([])
 
 data.value = props.data.map(item => {
   return {
@@ -64,6 +71,8 @@ data.value = props.data.map(item => {
     choose: false
   }
 })
+
+sortData.value = JSON.parse(JSON.stringify(data.value))
 
 const chooseAll = computed(() => {
   return data.value.every(item => item.choose)
@@ -97,6 +106,45 @@ const selectRow = () => {
   })
   data.value = dataV
   props.rowSelectChange && props.rowSelectChange(rows)
+}
+
+const sortChange = (type, column) => {
+  switch(type){
+    case 'up':
+      column.sortType = 'down'
+      sortDown(column.key)
+    break;
+    case 'down':
+      column.sortType = 'normal'
+      sortNormal(column.key)
+    break;
+    case 'normal':
+      column.sortType = 'up'
+      sortUp(column.key)
+    break;
+  }
+}
+
+const sortUp = (key) => {
+  data.value.sort(sortBy(key, true))
+}
+
+const sortDown = (key) => {
+  data.value.sort(sortBy(key, false))
+}
+
+const sortNormal = (key) => {
+  data.value = JSON.parse(JSON.stringify(sortData.value))
+}
+const sortBy = (field, type) => {
+    //根据传过来的字段进行排序
+    return (x, y) => {
+      if(type){
+        return x[field] - y[field]
+      }else {
+        return y[field] - x[field]
+      }
+    }
 }
 </script>
 
