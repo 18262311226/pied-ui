@@ -19,7 +19,7 @@ export default {
 </script>
 
 <script setup>
-import { computed, defineProps, ref } from 'vue'
+import { computed, defineProps, ref, watch } from 'vue'
 const props = defineProps({
     modelValue: {
         require:true,
@@ -41,6 +41,11 @@ const props = defineProps({
 const emits = defineEmits(['update:modelValue'])
 const checklist = ref('')
 checklist.value = props.modelValue
+
+watch(() => props.modelValue, (newValue) => {
+    checklist.value = newValue
+})
+
 let itemClasses = computed(() => {
     if(typeof checklist.value == 'boolean'){
         return checklist.value ? ['item-choose'] : [props.border ? 'pied-checkbox-box-border' : '']
@@ -63,6 +68,7 @@ const handelChange = () => {
     if(typeof checklist.value == 'boolean'){
         checklist.value = !checklist.value
         emits('update:modelValue', checklist.value)
+        emits('change', checklist.value)
     }else {
         let indexnum = -1
         checklist.value.map((item,index) => {
@@ -73,6 +79,7 @@ const handelChange = () => {
         })
         indexnum != -1 ? checklist.value.splice(indexnum, 1) : checklist.value.push(props.label)
         emits('update:modelValue', checklist.value) 
+        emits('change', checklist.value)
     }
 }
 </script>
@@ -88,7 +95,7 @@ const handelChange = () => {
 .pied-checkbox-box{
     position: relative;
     display: inline-flex;
-    min-width:100px;
+    min-width:50px;
     height:30px;
     align-items: center;
     justify-content: center;

@@ -3,7 +3,8 @@
     <pied-table 
       :data="data"
       :columns="columns"
-      
+      border
+      :rowSelectChange="rowSelectChange"
     >
       <template #body="{column, record}">
         <template v-if="column.key === 'gender'"> 
@@ -88,25 +89,32 @@ const data = ref([
 
 const columns = ref([
   {
+    title: '',
+    key: '',
+    width: '50px',
+    select: true,
+    center: 'center'
+  },
+  {
     title: '用户',
     key: 'userName',
     dataIndex: 'userName',
     center: 'center',
-    width: '150px'
+    width: '80px'
   },
   {
     title: '年龄',
     key: 'age',
     dataIndex: 'age',
     center: 'center',
-    width: '150px'
+    width: '50px'
   },
   {
     title: '性别',
     key: 'gender',
     dataIndex: 'gender',
     center: 'center',
-    width: '150px',
+    width: '50px',
     format: true
   },
   {
@@ -124,6 +132,10 @@ const columns = ref([
   }
 ])
 
+
+const rowSelectChange = (arr) => {
+  console.log(arr)
+}
 // const form = reactive({
 //   username: '',
 //   password: '',
