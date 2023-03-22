@@ -174,6 +174,64 @@ const handle = () => {
 ```
 :::
 
+## 内容居中
+
+<pied-button @click="handle3">open the center dialog</pied-button>
+
+<pied-dialog 
+    v-model="dialogShow3" 
+    title="标题"
+    center
+>
+    <span>这是一个dialog标题</span>
+    <template #footer>
+        <span>
+            <pied-button size="mini" type="info" @click="dialogShow3 = false">cancel</pied-button>
+            <pied-button size="mini" @click="dialogShow3 = false">confirm</pied-button>
+        </span>
+    </template>
+</pied-dialog>
+
+::: details 代码示例
+```js
+<template>
+    <pied-button click="handle1">open the center dialog</pied-button>
+
+    <pied-dialog 
+        v-model="dialogShow" 
+        title="标题"
+        center
+    >
+        <span>这是一个dialog标题</span>
+        <template #footer>
+            <span>
+                <pied-button size="mini" type="info" click="dialogShow = false">cancel</pied-button>
+                <pied-button size="mini" click="dialogShow = false">confirm</pied-button>
+            </span>
+        </template>
+    </pied-dialog>
+</template>
+
+<script>
+import { confirm } from 'pied-design-ui'
+import { ref } from 'vue'
+const dialogShow = ref(false)
+const handle = () => {
+    this.dialogShow = true
+}
+</script>
+```
+:::
+
+| 参数          |      说明  |  可选值 | 默认值 | 类型 | 
+| -------------| :-------------: | ----------: | -------------: |  ----------: | 
+| v-model      |  显示隐藏         | true/false      |   false         |  Boolean | 
+| center     |   居中           |   true/false |  false        |  Boolean |
+| title     |   标题           |   ------ |  ------        |  String |
+| beforeClose     |   关闭对话框前回调           |   ------ |  ------        |  Function |
+| close     |   关闭对话框回调           |   ------ |  ------        |  Function |
+
+
 <script>
 import { confirm } from '../../components/confirm/index.js'
 export default {
@@ -182,6 +240,7 @@ export default {
             dialogShow: false,
             dialogShow1: false,
             dialogShow2: false,
+            dialogShow3: false,
             form: {
                 username: '',
                 password: ''
@@ -197,6 +256,9 @@ export default {
         },
         handle2() {
             this.dialogShow2 = true
+        },
+        handle3() {
+            this.dialogShow3 = true
         },
         beforeClose(done){
             confirm('提示', '确定关闭dialog对话窗口吗', 'cancel', 'confirm').then(() => {
