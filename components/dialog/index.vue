@@ -6,11 +6,11 @@
     <transition name="box">
       <div class="pied-dialog-box" v-if="dialogShow">
         <div class="pied-dialog-title">
-          <div class="pied-dialog-self-title" :style="{textAlign: props.center ? 'center' : 'left'}">
+          <div class="pied-dialog-self-title" v-if="!slots['header']" :style="{textAlign: props.center ? 'center' : 'left'}">
             {{props.title}}
-            <p class="pied-icon-close-square" @click="closeDialog"></p>
+            <p class="pied-icon-close-square closeBtn" @click="closeDialog"></p>
           </div>
-          <div class="pied-dialog-slot-title">
+          <div v-else class="pied-dialog-slot-title">
             <slot name="header"></slot>
           </div>
         </div>
@@ -32,9 +32,12 @@ export default {
 </script>
 
 <script setup>
-import { ref, defineProps, watch } from 'vue'
+import { ref, defineProps, watch, useSlots } from 'vue'
+import { useScrollLock } from '@vueuse/core'
 
 const dialogShow = ref(false)
+const slots = useSlots()
+const isLocked = useScrollLock(document.body)
 
 const emits = defineEmits(['update:modelValue', 'close'])
 const props = defineProps({
@@ -57,6 +60,11 @@ const props = defineProps({
 })
 
 watch(() => props.modelValue, (newValue) => {
+  if(newValue){
+    isLocked.value = true
+  }else {
+    isLocked.value = false
+  }
   dialogShow.value = newValue
 }, {
   immediate: true
@@ -86,7 +94,7 @@ const closeDialog = () => {
     position:fixed;
     left:0;
     top:0;
-    z-index:19;
+    z-index:20;
     background:rgba(0,0,0,0.5);
   }
   .pied-dialog-box{
@@ -98,7 +106,7 @@ const closeDialog = () => {
     width:500px;
     height:auto;
     padding:10px;
-    z-index: 19;
+    z-index: 20;
     border-radius: 5px;
     box-sizing: border-box;
     background:#fff;
@@ -108,12 +116,13 @@ const closeDialog = () => {
         height:30px;
         line-height: 30px;
         font-weight: 700;
-        p{
+        .closeBtn{
           cursor: pointer;
           color:#333;
           float:right;
+          margin: 0;
           &:hover{
-            color:red;
+            color:purple;
           }
         }
       }

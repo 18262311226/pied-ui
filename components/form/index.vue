@@ -65,7 +65,6 @@ provide('formData', {
 .pied-form{
   width: 100%;
   height:auto;
-  padding:15px 15px;
   box-sizing: border-box;
 }
 </style>
