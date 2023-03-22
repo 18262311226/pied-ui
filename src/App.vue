@@ -1,6 +1,19 @@
 <template>
-  <div class="bg">
-    
+  <div>
+    <pied-dialog 
+      v-model="dialogShow" 
+      title="标题"
+      :beforeClose="beforeClose"
+    >
+      <span>我是dialog中的内容</span>
+      <template #footer>
+        <span>
+          <pied-button size="mini" type="info" @click="dialogShow = false">cancel</pied-button>
+          <pied-button size="mini" @click="dialogShow = false">confirm</pied-button>
+        </span>
+      </template>
+    </pied-dialog>
+    <pied-button type="info" @click="handel">提交</pied-button>
   </div>
   <!-- <div class="card">
     <pied-form :model="form" ref="formRef" :rules="rules">
@@ -30,7 +43,15 @@
 <script setup>
 import { ref, reactive, onMounted } from 'vue'
 import { confirm } from '../components/index'
+const dialogShow = ref(false)
+const beforeClose = (done) => {
+  console.log(111)
+  confirm('提示', '确定关闭dialog对话窗口吗', 'cancel', 'confirm').then(() => {
+    done && done()
+  }).catch(err => {
 
+  })
+}
 // const form = reactive({
 //   username: '',
 //   password: '',
@@ -83,8 +104,8 @@ import { confirm } from '../components/index'
 //     value: 3
 //   }
 // ])
-const handel = (record) => {
-  console.log(record)
+const handel = () => {
+  dialogShow.value = true
 }
 
 // const reset = () => {

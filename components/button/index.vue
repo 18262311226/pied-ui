@@ -95,12 +95,12 @@ const slots = useSlots()
   color:#fff;
 }
 .pied-button-info{
-  background:linear-gradient(120deg, #ddd, #41d1ff);
-  color:#fff;
+  background:linear-gradient(120deg, #f0f0f0, #ccc);
+  color:#343;
 }
 .pied-button-info:hover{
-  background:linear-gradient(120deg, rgb(248, 243, 243), #41d1ff);
-  color:#fff;
+  background:linear-gradient(120deg, #fdfdfd, #ccc);
+  color:#343;
 }
 .pied-button-warning{
   background:linear-gradient(120deg, orange, yellow);
