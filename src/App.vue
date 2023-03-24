@@ -1,11 +1,42 @@
 <template>
-  <div>
-    <pied-menu>
-      <pied-sub-menu>
-        <pied-menu-item></pied-menu-item>
+    <pied-menu width="250px" v-model:selectedKeys="current" mode="horizontal">
+      <pied-menu-item key="mail">
+        <template #icon>
+          <span class="pied-icon-home1"></span>
+        </template>
+        Navigation One
+      </pied-menu-item>
+      <pied-menu-item key="app">
+        <template #icon>
+          <span class="pied-icon-image1"></span>
+        </template>
+        Navigation Two
+      </pied-menu-item>
+      <pied-sub-menu key="sub-1">
+        <template #icon>
+          <span class="pied-icon-heart1"></span>
+        </template>
+        <template #title>
+          Navigation Three-Submen
+        </template>
+        <pied-menu-item-group title="item-1">
+          <pied-menu-item>menu-option1</pied-menu-item>
+          <pied-menu-item>menu-option2</pied-menu-item>
+          <pied-menu-item>menu-option3</pied-menu-item>
+        </pied-menu-item-group>
+        <pied-menu-item-group title="item-2">
+          <pied-menu-item>menu-option4</pied-menu-item>
+          <pied-menu-item>menu-option5</pied-menu-item>
+          <pied-menu-item>menu-option6</pied-menu-item>
+        </pied-menu-item-group>
       </pied-sub-menu>
+      <pied-menu-item key="link">
+        <template #icon>
+          <span class="pied-icon-a-piechart"></span>
+        </template>
+        Navigation Four
+      </pied-menu-item>
     </pied-menu>
-  </div>
   <!-- <div class="card">
     <pied-form :model="form" ref="formRef" :rules="rules">
       <pied-form-item prop="username">
@@ -34,15 +65,7 @@
 <script setup>
 import { ref, reactive, onMounted } from 'vue'
 import { confirm } from '../components/index'
-const dialogShow = ref(false)
-const beforeClose = (done) => {
-  console.log(111)
-  confirm('提示', '确定关闭dialog对话窗口吗', 'cancel', 'confirm').then(() => {
-    done && done()
-  }).catch(err => {
-
-  })
-}
+const current = ref(['mail'])
 // const form = reactive({
 //   username: '',
 //   password: '',

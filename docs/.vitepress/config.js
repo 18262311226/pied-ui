@@ -39,7 +39,8 @@ module.exports = {
               text: 'Data',
               items: [
                 { text: 'Table 表格', link: '../components/table.md' },
-                { text: 'Pagination 分页', link: '../components/pagination.md'}
+                { text: 'Pagination 分页', link: '../components/pagination.md'},
+                { text: 'Menu 导航菜单', link: '../components/menu.md'},
               ]
             },
             {
