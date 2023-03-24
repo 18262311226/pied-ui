@@ -1,23 +1,23 @@
 <template>
     <pied-menu width="250px" v-model:selectedKeys="current" mode="horizontal">
-      <pied-menu-item key="mail">
+      <pied-menu-item keys="mail">
         <template #icon>
           <span class="pied-icon-home1"></span>
         </template>
-        Navigation One
+        首页
       </pied-menu-item>
-      <pied-menu-item key="app">
+      <pied-menu-item keys="app">
         <template #icon>
           <span class="pied-icon-image1"></span>
         </template>
-        Navigation Two
+        相册管理
       </pied-menu-item>
-      <pied-sub-menu key="sub-1">
+      <pied-sub-menu keys="sub-1">
         <template #icon>
           <span class="pied-icon-heart1"></span>
         </template>
         <template #title>
-          Navigation Three-Submen
+          我的收藏
         </template>
         <pied-menu-item-group title="item-1">
           <pied-menu-item>menu-option1</pied-menu-item>
@@ -30,7 +30,7 @@
           <pied-menu-item>menu-option6</pied-menu-item>
         </pied-menu-item-group>
       </pied-sub-menu>
-      <pied-menu-item key="link">
+      <pied-menu-item keys="link">
         <template #icon>
           <span class="pied-icon-a-piechart"></span>
         </template>
@@ -63,9 +63,12 @@
 </template>
 
 <script setup>
-import { ref, reactive, onMounted } from 'vue'
+import { ref, reactive, onMounted, watch } from 'vue'
 import { confirm } from '../components/index'
 const current = ref(['mail'])
+watch(() => current.value, () => {
+  console.log(current.value)
+})
 // const form = reactive({
 //   username: '',
 //   password: '',

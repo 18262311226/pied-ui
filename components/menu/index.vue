@@ -15,7 +15,8 @@ export default {
 </script>
 
 <script setup>
-import { computed, defineProps, provide } from 'vue'
+import { computed, defineProps, provide, defineEmits } from 'vue'
+const emits = defineEmits(['update:selectedKeys'])
 const props = defineProps({
     selectedKeys: {
         type: Array,
@@ -33,7 +34,10 @@ const props = defineProps({
 
 provide('menuForm', {
     mode: props.mode,
-    selectedKeys: props.selectedKeys
+    selectedKeys: props.selectedKeys,
+    menuClick: (type, key) => {
+        emits('update:selectedKeys', [key])
+    }
 })
 
 const classes = computed(() => {

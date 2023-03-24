@@ -6,7 +6,10 @@
         </span>
         <slot name="title"></slot>
     </div>
-    <div class="pied-sub-menu-child" :class="[menuForm.mode == 'horizontal' ? 'menu-position' : '']">
+    <div 
+        class="pied-sub-menu-child" 
+        :class="[menuForm.mode == 'horizontal' ? 'menu-position' : '']"
+    >
         <slot></slot>
     </div>
   </div>
@@ -19,8 +22,14 @@ export default {
 </script>
 
 <script setup>
-import { inject } from 'vue'
+import { inject, defineProps } from 'vue'
 const menuForm = inject('menuForm')
+const props = defineProps({
+    keys: {
+        type: String,
+        default: ''
+    }
+})
 </script>
 
 <style lang="scss" scoped>
@@ -36,12 +45,12 @@ const menuForm = inject('menuForm')
         }
         &:hover{
             color:#1890ff;
-            // border-bottom:2px solid #1890ff;
         }
     }
     .pied-sub-menu-child{
         width:100%;
-        padding-left:20px;
+        min-width:150px;
+        padding-left:15px;
         box-sizing: border-box;
     }
     .menu-position{
