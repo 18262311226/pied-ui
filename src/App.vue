@@ -1,19 +1,10 @@
 <template>
   <div>
-    <pied-dialog 
-      v-model="dialogShow" 
-      title="标题"
-      :beforeClose="beforeClose"
-    >
-      <span>我是dialog中的内容</span>
-      <template #footer>
-        <span>
-          <pied-button size="mini" type="info" @click="dialogShow = false">cancel</pied-button>
-          <pied-button size="mini" @click="dialogShow = false">confirm</pied-button>
-        </span>
-      </template>
-    </pied-dialog>
-    <pied-button type="info" @click="handel">提交</pied-button>
+    <pied-menu>
+      <pied-sub-menu>
+        <pied-menu-item></pied-menu-item>
+      </pied-sub-menu>
+    </pied-menu>
   </div>
   <!-- <div class="card">
     <pied-form :model="form" ref="formRef" :rules="rules">
