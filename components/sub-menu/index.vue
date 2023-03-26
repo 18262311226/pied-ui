@@ -34,6 +34,10 @@ emiter.on('modeChange', (newValue) => {
     menuForm.mode = newValue
 })
 
+emiter.on('itemChange', () => {
+    childMenuShow.value = false
+})
+
 const props = defineProps({
     keys: {
         type: String,

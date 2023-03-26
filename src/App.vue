@@ -1,6 +1,6 @@
 <template>
   <div>
-      <pied-button @click="handel">切换</pied-button>
+    <pied-button @click="handel">切换</pied-button>
     <pied-menu theme="sun" width="300px" v-model:selectedKeys="current" :mode="mode">
       <pied-menu-item keys="mail">
         <template #icon>

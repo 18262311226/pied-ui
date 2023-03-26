@@ -22,6 +22,7 @@ export default {
 
 <script setup>
 import { inject, defineProps, ref } from 'vue'
+import emiter from '../../utils/emiter'
 
 const menuForm = inject('menuForm')
 
@@ -37,6 +38,7 @@ const itemShow = ref(props.keys === menuForm.selectedKeys)
 const itemClick = () => {
     menuForm.selectedKeys = props.keys
     menuForm.menuClick('itemClick', props.keys)
+    emiter.emit('itemChange')
     itemShow.value = menuForm.selectedKeys === props.keys
 }
 </script>
