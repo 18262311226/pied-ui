@@ -22,12 +22,12 @@
           我的收藏
         </template>
         <pied-menu-item-group title="item-1">
-          <pied-menu-item>menu-option1</pied-menu-item>
-          <pied-menu-item>menu-option2</pied-menu-item>
-          <pied-menu-item>menu-option3</pied-menu-item>
+          <pied-menu-item keys="home">menu-option1</pied-menu-item>
+          <pied-menu-item keys="like">menu-option2</pied-menu-item>
+          <pied-menu-item keys="user">menu-option3</pied-menu-item>
         </pied-menu-item-group>
         <pied-menu-item-group title="item-2">
-          <pied-menu-item>menu-option4</pied-menu-item>
+          <pied-menu-item keys="my">menu-option4</pied-menu-item>
         </pied-menu-item-group>
         <pied-sub-menu keys="sub-2">
           <template #icon>
@@ -37,14 +37,14 @@
             兴趣管理
           </template>
           <pied-menu-item-group title="item-3">
-            <pied-menu-item>menu-option7</pied-menu-item>
-            <pied-menu-item>menu-option8</pied-menu-item>
-            <pied-menu-item>menu-option9</pied-menu-item>
+            <pied-menu-item keys="option7">menu-option7</pied-menu-item>
+            <pied-menu-item keys="option8">menu-option8</pied-menu-item>
+            <pied-menu-item keys="option9">menu-option9</pied-menu-item>
           </pied-menu-item-group>
           <pied-menu-item-group title="item-4">
-            <pied-menu-item>menu-option10</pied-menu-item>
-            <pied-menu-item>menu-option11</pied-menu-item>
-            <pied-menu-item>menu-option12</pied-menu-item>
+            <pied-menu-item keys="option10">menu-option10</pied-menu-item>
+            <pied-menu-item keys="option11">menu-option11</pied-menu-item>
+            <pied-menu-item keys="option12">menu-option12</pied-menu-item>
           </pied-menu-item-group>
         </pied-sub-menu>
       </pied-sub-menu>

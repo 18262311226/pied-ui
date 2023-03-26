@@ -20,6 +20,7 @@ export default {
 
 <script setup>
 import { computed, defineProps, provide, defineEmits,ref, watch } from 'vue'
+import emiter from '../../utils/emiter'
 const emits = defineEmits(['update:selectedKeys'])
 const props = defineProps({
     selectedKeys: {
@@ -38,6 +39,10 @@ const props = defineProps({
         type: String,
         default: 'white'
     }
+})
+
+watch(() => props.mode, (newValue) => {
+    emiter.emit('modeChange', newValue)
 })
 
 provide('menuForm', {

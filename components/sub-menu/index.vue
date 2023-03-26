@@ -4,8 +4,10 @@
         <span class="sub-menu-icon">
             <slot name="icon"></slot>
         </span>
-        <slot name="title"></slot>
-        <span class="pied-icon-left sub-menu-arrow" :class="[childMenuShow ? 'arrow-active' : '']"></span>
+        <div class="sub-menu-title">
+            <slot name="title"></slot>
+        </div>
+        <span :class="[childMenuShow ? 'pied-icon-minus-square1' : 'pied-icon-plus-square1', 'sub-menu-arrow']"></span>
     </div>
     <div 
         class="pied-sub-menu-child"
@@ -25,7 +27,12 @@ export default {
 
 <script setup>
 import { inject, defineProps, ref } from 'vue'
+import emiter from '../../utils/emiter'
 const menuForm = inject('menuForm')
+
+emiter.on('modeChange', (newValue) => {
+    menuForm.mode = newValue
+})
 
 const props = defineProps({
     keys: {
@@ -45,7 +52,6 @@ const subClick = () => {
 .pied-sub-menu-box{
     position: relative;
     .pied-sub-menu{
-        
         padding:12px 15px;
         cursor: pointer;
         font-size: 14px;
@@ -53,17 +59,17 @@ const subClick = () => {
         display: flex;
         align-items: center;
         .sub-menu-icon{
-            margin-right:5px;
+            margin-right:10px;
+        }
+        .sub-menu-title{
+            margin-right:15px;
         }
         .sub-menu-arrow{
             position: absolute;
             font-size: 12px;
-            right:0;
+            right:10px;
             margin-left:15px;
             transition: 0.3s;
-        }
-        .arrow-active{
-            transform: rotate(-90deg);
         }
         &:hover{
             color:#1890ff;
@@ -72,7 +78,7 @@ const subClick = () => {
     .pied-sub-menu-child{
         width:100%;
         min-width:200px;
-        padding: 0 10px; 
+        text-indent: 1em;
         box-sizing: border-box;
         transition: 0.3s;
     }

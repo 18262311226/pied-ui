@@ -35,6 +35,7 @@ const props = defineProps({
 const itemShow = ref(props.keys === menuForm.selectedKeys)
 
 const itemClick = () => {
+    menuForm.selectedKeys = props.keys
     menuForm.menuClick('itemClick', props.keys)
     itemShow.value = menuForm.selectedKeys === props.keys
 }
