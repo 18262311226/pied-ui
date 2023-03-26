@@ -1,5 +1,7 @@
 <template>
-    <pied-menu width="250px" v-model:selectedKeys="current" mode="horizontal">
+  <div>
+      <pied-button @click="handel">切换</pied-button>
+    <pied-menu theme="sun" width="300px" v-model:selectedKeys="current" :mode="mode">
       <pied-menu-item keys="mail">
         <template #icon>
           <span class="pied-icon-home1"></span>
@@ -26,9 +28,25 @@
         </pied-menu-item-group>
         <pied-menu-item-group title="item-2">
           <pied-menu-item>menu-option4</pied-menu-item>
-          <pied-menu-item>menu-option5</pied-menu-item>
-          <pied-menu-item>menu-option6</pied-menu-item>
         </pied-menu-item-group>
+        <pied-sub-menu keys="sub-2">
+          <template #icon>
+            <span class="pied-icon-heart1"></span>
+          </template>
+          <template #title>
+            兴趣管理
+          </template>
+          <pied-menu-item-group title="item-3">
+            <pied-menu-item>menu-option7</pied-menu-item>
+            <pied-menu-item>menu-option8</pied-menu-item>
+            <pied-menu-item>menu-option9</pied-menu-item>
+          </pied-menu-item-group>
+          <pied-menu-item-group title="item-4">
+            <pied-menu-item>menu-option10</pied-menu-item>
+            <pied-menu-item>menu-option11</pied-menu-item>
+            <pied-menu-item>menu-option12</pied-menu-item>
+          </pied-menu-item-group>
+        </pied-sub-menu>
       </pied-sub-menu>
       <pied-menu-item keys="link">
         <template #icon>
@@ -37,97 +55,24 @@
         Navigation Four
       </pied-menu-item>
     </pied-menu>
-  <!-- <div class="card">
-    <pied-form :model="form" ref="formRef" :rules="rules">
-      <pied-form-item prop="username">
-        <pied-input v-model="form.username" label="username"></pied-input>
-      </pied-form-item>
-      <pied-form-item prop="password">
-        <pied-input v-model="form.password" label="password" type="password"></pied-input>
-      </pied-form-item>
-      <pied-form-item label="兴趣爱好" prop="like" label-width="100px" bottom="20px">
-        <pied-checkbox-group v-model="form.like" :data="checkList">
-        </pied-checkbox-group>
-      </pied-form-item>
-      <pied-form-item label="国籍" prop="country" label-width="100px" bottom="20px">
-        <pied-select v-model="form.country" :data="countryList"></pied-select>
-      </pied-form-item>
-      <pied-form-item>
-        <div style="text-align:center">
-          <pied-button type="error" @click="reset">重置</pied-button>
-          <pied-button @click="handel">提交</pied-button>
-        </div>
-      </pied-form-item>
-    </pied-form>
-  </div> -->
+  </div>
+  
 </template>
 
 <script setup>
 import { ref, reactive, onMounted, watch } from 'vue'
 import { confirm } from '../components/index'
-const current = ref(['mail'])
-watch(() => current.value, () => {
-  console.log(current.value)
-})
-// const form = reactive({
-//   username: '',
-//   password: '',
-//   like: [],
-//   country: ''
-// })
-// const formRef = ref(null)
+const current = ref('mail')
+const mode = ref('inline')
 
-// const rules = reactive({
-//   username: [
-//     {required: true, message: '请输入用户名', trigger: 'blur'}
-//   ],
-//   password: [
-//     {required: true, message: '请输入密码', trigger: 'blur'}
-//   ]
-// })
-// const checkList = ref([
-//   {
-//     label: '唱歌',
-//     value: 0
-//   },
-//   {
-//     label: '跳舞',
-//     value: 1
-//   },
-//   {
-//     label: 'rap',
-//     value: 2
-//   },
-//   {
-//     label: '篮球',
-//     value: 3
-//   }
-// ])
-// const countryList = ref([
-//   {
-//     label: '中国',
-//     value: 0
-//   },
-//   {
-//     label: '日本',
-//     value: 1
-//   },
-//   {
-//     label: '美国',
-//     value: 2
-//   },
-//   {
-//     label: '俄罗斯',
-//     value: 3
-//   }
-// ])
 const handel = () => {
-  dialogShow.value = true
+  if(mode.value === 'inline'){
+    mode.value = 'horizontal'
+  }else {
+    mode.value = 'inline'
+  }
+  
 }
-
-// const reset = () => {
-//   formRef.value.resetFields()
-// }
 
 </script>
 

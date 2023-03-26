@@ -25,10 +25,11 @@ const props = defineProps({
 <style lang="scss" scoped>
 .pied-menu-item-group{
     width:100%;
+    margin-top:10px;
+    padding:0 15px;
     .menu-item-group-title{
         font-size: 14px;
         color:#ccc;
-        padding-top:5px;
         box-sizing: border-box;
     }
 }
