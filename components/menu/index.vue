@@ -45,9 +45,14 @@ watch(() => props.mode, (newValue) => {
     emiter.emit('modeChange', newValue)
 })
 
+watch(() => props.theme, (newValue) => {
+    emiter.emit('themeChange', newValue)
+})
+
 provide('menuForm', {
     mode: props.mode,
     selectedKeys: props.selectedKeys,
+    theme: props.theme,
     menuClick: (type, key) => {
         emits('update:selectedKeys', key)
     }
@@ -65,7 +70,6 @@ const classes = computed(() => {
     transition: 0.3s;
 }
 .pied-menu-inline{
-    height:100%;
 }
 .pied-menu-horizontal{
     display: flex;

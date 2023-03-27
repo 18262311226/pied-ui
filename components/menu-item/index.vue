@@ -3,8 +3,8 @@
         class="pied-menu-item"
         @click="itemClick"
         :class="[
-            itemShow && props.keys === menuForm.selectedKeys && menuForm.mode === 'inline' && 'pied-menu-item-inline-active',
-            itemShow && props.keys === menuForm.selectedKeys && menuForm.mode === 'horizontal' && 'pied-menu-item-horizontal-active'
+            itemShow && props.keys === menuForm.selectedKeys && menuForm.mode === 'inline' && `pied-menu-item-inline-active`,
+            itemShow && props.keys === menuForm.selectedKeys && menuForm.mode === 'horizontal' && `pied-menu-item-horizontal-active`
         ]"
     >
         <span class="menu-item-icon">
@@ -25,9 +25,14 @@ import { inject, defineProps, ref } from 'vue'
 import emiter from '../../utils/emiter'
 
 const menuForm = inject('menuForm')
+const emits = defineEmits('menuItemChange')
 
 const props = defineProps({
     keys: {
+        type: String,
+        default: ''
+    },
+    to: {
         type: String,
         default: ''
     }
@@ -39,6 +44,7 @@ const itemClick = () => {
     menuForm.selectedKeys = props.keys
     menuForm.menuClick('itemClick', props.keys)
     emiter.emit('itemChange')
+    emits('menuItemChange', props.to)
     itemShow.value = menuForm.selectedKeys === props.keys
 }
 </script>
@@ -62,6 +68,7 @@ const itemClick = () => {
     border-right: 3px solid #1890ff;
     background: #e6f7ff;
 }
+
 .pied-menu-item-horizontal-active{
     color: #1890ff;
     border-bottom: 3px solid #1890ff;

@@ -11,6 +11,7 @@
     </div>
     <div 
         class="pied-sub-menu-child"
+        :style="{background: menuForm.theme === 'dark' ? '#333' : '#fff'}"
         :class="[menuForm.mode === 'horizontal' ? 'menu-position' : '']"
         v-if="childMenuShow"
     >
@@ -34,8 +35,14 @@ emiter.on('modeChange', (newValue) => {
     menuForm.mode = newValue
 })
 
+emiter.on('themeChange', (newValue) => {
+    menuForm.theme = newValue
+})
+
 emiter.on('itemChange', () => {
-    childMenuShow.value = false
+    if(menuForm.mode === 'horizontal'){
+       childMenuShow.value = false 
+    }
 })
 
 const props = defineProps({
@@ -46,6 +53,7 @@ const props = defineProps({
 })
 
 const childMenuShow = ref(false)
+const isSubOpen = ref(false)
 
 const subClick = () => {
     childMenuShow.value = !childMenuShow.value
@@ -71,7 +79,7 @@ const subClick = () => {
         .sub-menu-arrow{
             position: absolute;
             font-size: 12px;
-            right:10px;
+            right:15px;
             margin-left:15px;
             transition: 0.3s;
         }
@@ -79,16 +87,19 @@ const subClick = () => {
             color:#1890ff;
         }
     }
+    .pied-sub-menu-active{
+        color: #1890ff;
+        background:#e6f7ff;
+    }
     .pied-sub-menu-child{
-        width:100%;
         min-width:200px;
+        // padding-left:10px;
         text-indent: 1em;
-        box-sizing: border-box;
         transition: 0.3s;
     }
     .menu-position{
         position:absolute;
-        left:0;
+        left:10px;
         top:52px;
         box-shadow: 0 0 8px 1px #ccc;
         z-index: 10;

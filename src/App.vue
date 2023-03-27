@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <!-- <div class="box"> -->
     <pied-button @click="handel">切换</pied-button>
     <pied-menu theme="sun" width="300px" v-model:selectedKeys="current" :mode="mode">
-      <pied-menu-item keys="mail">
+      <pied-menu-item keys="mail" to="/user/my">
         <template #icon>
           <span class="pied-icon-home1"></span>
         </template>
@@ -55,7 +55,7 @@
         Navigation Four
       </pied-menu-item>
     </pied-menu>
-  </div>
+  <!-- </div> -->
   
 </template>
 
@@ -100,4 +100,12 @@ const handel = () => {
     margin-right:10px;
   }
 }
+.box{
+  width:300px;
+  height:100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: skyblue;
+}
+
 </style>
