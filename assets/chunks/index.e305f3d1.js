@@ -1,0 +1,1 @@
+import{_ as s,o as t,c as d,k as a}from"../app.20a46c54.js";const n={name:"piedHeader"},o={class:"pied-header"};function _(e,c,r,p,i,l){return t(),d("div",o,[a(e.$slots,"default",{},void 0,!0)])}const f=s(n,[["render",_],["__scopeId","data-v-17d021a4"]]);export{f as default};

@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as n}from"./app.20a46c54.js";const d=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"components/timeline.md"}'),o={name:"components/timeline.md"};function a(r,s,c,i,m,p){return n(),t("div")}const l=e(o,[["render",a]]);export{d as __pageData,l as default};

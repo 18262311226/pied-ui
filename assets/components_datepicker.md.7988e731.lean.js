@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as a}from"./app.20a46c54.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"components/datepicker.md"}'),o={name:"components/datepicker.md"};function r(c,n,s,p,d,i){return a(),t("div")}const f=e(o,[["render",r]]);export{m as __pageData,f as default};

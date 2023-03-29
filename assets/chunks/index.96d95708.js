@@ -1,0 +1,1 @@
+import{_ as e,o as t,c as _}from"../app.20a46c54.js";const s={name:"piedStep"},c={class:"pied-step"};function o(n,d,a,p,r,i){return t(),_("div",c)}const f=e(s,[["render",o],["__scopeId","data-v-13dc3423"]]);export{f as default};
